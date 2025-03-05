@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:wght@200..800&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
+
+
+body {
+  margin: 0;
+  padding: auto;
+}
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.sec-title h4:before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 22px;
+  width: 50px;
+  height: 1px;
+  background-color: #27497b;
+}
+
+.explore-every-part{
+  background: url('./assets/images/explorepic.jpg');
+  width: 100%;
+  margin: 0;
+  padding: 80px 0;
+  background-position: center;
+  background-size: cover;
+}
+
+.footer-bg{
+  background-image: url('./assets/images/footer-bg.png');
+  width: 100%;
+  margin: 0;
+  padding: 80px 0 0 0;
+  background-position: center;
+  background-size: cover;
+  
+}
+  

@@ -1,0 +1,52 @@
+
+.middle-menu-phone {
+  align-items: center;
+}
+.middle-menu-phone svg{
+  margin-right: 5px;
+  color: rgb(37, 113, 185);
+}
+  .middle-menu-icon ul{
+   color: rgb(37, 113, 185);
+   cursor: pointer;
+  }
+  .middle-menu-icon ul li{
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    transition: all 0.5s;
+  }
+  .middle-menu-icon ul li:hover{
+    background-color: rgb(12, 12, 12);
+    color: white;
+  }
+
+.down-menu {
+  background-image: url('../../assets/images/nav-bg.jpg');
+  background-position: center; 
+  position: relative;
+  height: fit-content;
+  padding: 12px 0; 
+}
+
+.down-menu ul li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 4px;
+  background-color: rgb(37, 113, 185);
+  transform: translateX(-50%);
+  transition: width 0.6s ease
+}
+
+.down-menu ul li:hover::after {
+  width: 100%;
+}
+
+.home-bg1{
+background: rgb(167,236,255);
+background: linear-gradient(90deg, rgba(167,236,255,1) 21%, rgba(200,242,255,1) 48%, rgba(156,232,252,1) 77%, rgba(205,238,245,1) 100%);
+}
+
