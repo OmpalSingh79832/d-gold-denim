@@ -7,8 +7,8 @@ const HomePage = () => {
 
   return (
     <>
-      <div className='w-[95%] mx-auto'>
         <HomeSlider />
+      <div className='w-[95%] mx-auto'>
         <HomeDenim />
       </div>
 

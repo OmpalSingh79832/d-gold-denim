@@ -125,7 +125,7 @@ const Filters = () => {
       {/* Products Display */}
       <div className="sm:col-span-12 md:col-span-6 lg:col-span-9 p-4">
         <h2 className="text-2xl font-bold text-gray-800 mb-8">Products</h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-4 gap-4 sm:px-0 md:px-4">
+        <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 sm:px-0 md:px-4 for-md-screen">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <div
@@ -154,14 +154,14 @@ const Filters = () => {
                     </div>
                   </div>
                   {/* Product Name & Button */}
-                  <div className="sm:bg-white md:bg-[#efe7e2] py-2">
+                  <div className="sm:bg-white md:bg-[#efe7e2] py-2 h-16">
                     <span className="text-gray-900 sm:text-sm md:text-base font-semibold">
                       {product?.name}
                     </span>
                     <br />
-                    <button className="bg-blue-500 text-white px-4 w-[80%] mx-auto py-2 text-sm font-medium rounded-lg hover:bg-blue-600 transition-all duration-300">
+                    {/* <button className="bg-blue-500 text-white px-4 w-[80%] mx-auto py-2 text-sm font-medium rounded-lg hover:bg-blue-600 transition-all duration-300">
                       View Now
-                    </button>
+                    </button> */}
                   </div>
                 </Link>
               </div>

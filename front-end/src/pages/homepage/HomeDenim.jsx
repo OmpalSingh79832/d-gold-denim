@@ -14,14 +14,9 @@ import Slider from "react-slick";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 import PopularProducts from './PopularProducts';
 
-
-
-
 const HomeDenim = () => {
-
   const { topproducts, popuarproducts } = useSelector((state) => state.product)
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getTopProducts())
     dispatch(getPopularProducts())

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { products } from "./data";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductById } from "../../redux/slices/productReduer";
-
 import PopularProducts from "../../pages/homepage/PopularProducts";
 
 const ProductPage = () => {
@@ -18,14 +16,14 @@ const ProductPage = () => {
   const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 });
   const [isHovering, setIsHovering] = useState(false);
   const [startIndex, setStartIndex] = useState(0);
-  const visibleThumbnails = 6;
+  const [visibleThumbnails, setVisibleThumbnails] = useState(6); // Start with default value 6
   const dispatch = useDispatch();
 
   const id = params.productId;
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []); 
+  }, []);
 
   useEffect(() => {
     dispatch(getProductById(id));
@@ -33,22 +31,40 @@ const ProductPage = () => {
 
   const oneproduct = singleproduct.menu;
 
-  console.log(oneproduct, "d is here");
   useEffect(() => {
     setIsLoading(true);
     setError(null);
 
     if (oneproduct) {
-      // Set product images from API data
       const productImages = oneproduct.images || [];
-      setMainImage(productImages[0]); // Use first image as main
-      setThumbnails(productImages); // All images as thumbnails
+      setMainImage(productImages[0]);
+      setThumbnails(productImages);
     } else {
       setError("Product not found.");
     }
 
     setIsLoading(false);
   }, [oneproduct]);
+
+  useEffect(() => {
+    const updateVisibleThumbnails = () => {
+      if (window.innerWidth <= 640) {
+        setVisibleThumbnails(4); // 4 thumbnails for small screens (sm)
+      } else if (window.innerWidth <= 768) {
+        setVisibleThumbnails(6); // 6 thumbnails for medium screens (md)
+      } else {
+        setVisibleThumbnails(6); // Default for large screens
+      }
+    };
+
+    updateVisibleThumbnails(); // Call on component mount
+    window.addEventListener("resize", updateVisibleThumbnails); // Update on resize
+
+    // Cleanup on unmount
+    return () => {
+      window.removeEventListener("resize", updateVisibleThumbnails);
+    };
+  }, []);
 
   const nextThumbnails = () => {
     if (startIndex + visibleThumbnails < thumbnails.length) {
@@ -69,7 +85,6 @@ const ProductPage = () => {
     setZoomPosition({ x, y });
   };
 
-  // Conditional rendering
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -79,7 +94,6 @@ const ProductPage = () => {
   if (!oneproduct) {
     return <div>Product data not available.</div>;
   }
-
 
   return (
     <>
@@ -141,7 +155,7 @@ const ProductPage = () => {
             {/* Product Details */}
             <div className="w-full md:w-[60%] px-6">
               <div className="p-6 bg-white">
-                <h2 className="text-3xl font-semibold text-gray-900 mb-3">
+                <h2 className="sm:text-xl md:text-3xl font-semibold text-gray-900 mb-3">
                   {oneproduct.name}
                 </h2>
                 <p className="text-gray-700 text-lg">
@@ -149,13 +163,13 @@ const ProductPage = () => {
                 </p>
 
                 {/* Quantity & Price Section */}
-                <div className="flex items-center my-5 gap-4">
+                <div className="md:flex sm:flex-row items-center md:my-5 sm:my-0 gap-4 ">
                   <input
                     type="number"
                     placeholder="Enter Quantity"
-                    className="w-44 px-3 py-2 border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="sm:w-full md:w-44 px-3 py-2 md:my-0 sm:my-4 border border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-blue-500 outline-none"
                   />
-                  <p className="px-3 py-2 bg-gray-100 text-gray-800 rounded-lg border border-gray-300">
+                  <p className="px-3 py-2 bg-gray-100 md:my-0 sm:mb-4 text-gray-800 rounded-lg border border-gray-300">
                     In Piece
                   </p>
                   <button className="bg-[#1E2747] text-white px-5 py-2 rounded-lg text-lg font-medium shadow-md hover:bg-[#2571B9] transition-all">
@@ -215,8 +229,8 @@ const ProductPage = () => {
                 </Link>
 
                 {/* Action Buttons */}
-                <div className="my-6 flex gap-4">
-                  <button className="bg-gray-100 px-5 py-3 text-lg font-medium rounded-lg text-gray-900 border border-gray-300 hover:bg-gray-200 transition-all">
+                <div className="sm:my-0 md:my-6 md:flex sm:flex-row gap-4">
+                  <button className="bg-gray-100 px-5 md:my-0 sm:my-4 py-3 text-lg font-medium rounded-lg text-gray-900 border border-gray-300 hover:bg-gray-200 transition-all">
                     Request to Call
                   </button>
                   <button className="bg-[#1E2747] text-white text-lg px-5 py-3 rounded-lg font-medium shadow-md hover:bg-[#2571B9] transition-all">
@@ -254,7 +268,7 @@ const ProductPage = () => {
           </h2>
 
           {/* Product Information Table */}
-          <div className="overflow-hidden rounded-lg border border-blue-300 shadow-md">
+          <div className="overflow-hidden rounded-lg border border-blue-300 shadow-md overflow-x-auto w-full">
             <table className="w-full text-lg border-collapse">
               <tbody>
                 <tr className="border-b border-blue-200 bg-gray-50">

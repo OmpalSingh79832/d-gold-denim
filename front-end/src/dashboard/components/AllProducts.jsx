@@ -1,24 +1,25 @@
-
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { deleteProduct } from '../../redux/slices/productSlice';
-import { FaTrash } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { FaTrash, FaEdit } from 'react-icons/fa';
 import { deleteroductById, getProducts } from '../../redux/slices/productReduer';
 
-const AllProducts = () => {
+const AllProducts = ({setActivePage}) => {
   const { products } = useSelector((state) => state.product);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    dispatch(getProducts())
-  }, [dispatch])
+    dispatch(getProducts());
+  }, [dispatch]);
 
   const data = Array.isArray(products) ? products : products.menu || [];
 
   const deleteProduct = async (id) => {
-    await dispatch(deleteroductById(id))
-    dispatch(getProducts())
+    await dispatch(deleteroductById(id));
+    dispatch(getProducts());
+  };
 
-  }
 
 
   return (
@@ -33,7 +34,7 @@ const AllProducts = () => {
           <div className="flex-1">Category</div>
           <div className="flex-1">Color</div>
           <div className="flex-1">Gender</div>
-          <div className="w-16 text-center">Action</div>
+          <div className="w-24 text-center">Actions</div>
         </div>
 
         {data.map((product) => (
@@ -45,7 +46,12 @@ const AllProducts = () => {
             <div className="flex-1">{product.category}</div>
             <div className="flex-1">{product.colors}</div>
             <div className="flex-1">{product.gender}</div>
-            <div className="w-16 text-center">
+            <div className="w-24 flex justify-center gap-4">
+              <button
+                 onClick={() => setActivePage("addproduct", product)}
+                className="text-blue-500 hover:text-blue-700">
+                <FaEdit size={16} />
+              </button>
               <button
                 onClick={() => deleteProduct(product._id)}
                 className="text-red-500 hover:text-red-700">
@@ -60,4 +66,3 @@ const AllProducts = () => {
 };
 
 export default AllProducts;
-

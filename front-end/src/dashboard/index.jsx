@@ -1,20 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./components/AddProduct";
-
 import Profile from "./components/Profile";
-
 import DashboardImg from "../assets/images/footerlogo.png";
 import { FaBars, FaTimes } from "react-icons/fa";
-
 import AllProducts from "./components/AllProducts";
 import { ToastContainer } from "react-toastify";
 import PopularP from "./components/PopularP";
 import TopProducts from "./components/TopProducts";
-// import TopProduct from "./components/TopProduct";
+
 
 const Index = () => {
   const [activePage, setActivePage] = useState("addproduct");
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
 
@@ -26,6 +24,10 @@ const Index = () => {
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
+  };
+  const handleSetActivePage = (page, product = null) => {
+    setActivePage(page);
+    setSelectedProduct(product);
   };
 
   // Close sidebar when clicking outside
@@ -48,9 +50,9 @@ const Index = () => {
   const renderPage = () => {
     switch (activePage) {
       case "addproduct":
-        return <Dashboard />;
+        return <Dashboard selectedProduct={selectedProduct}/>;
       case "allproduct":
-        return <AllProducts />;
+        return <AllProducts setActivePage={handleSetActivePage}/>;
         case "popularproduct":
           return <PopularP />;
           case "topproduct":
@@ -59,7 +61,7 @@ const Index = () => {
         return <Profile />;
 
       default:
-        return <Dashboard />;
+        return <Dashboard selectedProduct={selectedProduct}/>;
     }
   };
 
@@ -70,7 +72,7 @@ const Index = () => {
       <div className="flex overflow-x-auto">
         {/* Sidebar */}
         <div ref={sidebarRef}>
-          <Sidebar setActivePage={setActivePage} isOpen={isOpen} toggleSidebar={toggleSidebar} />
+          <Sidebar setActivePage={handleSetActivePage} isOpen={isOpen} toggleSidebar={toggleSidebar} />
         </div>
 
         {/* Main Content */}

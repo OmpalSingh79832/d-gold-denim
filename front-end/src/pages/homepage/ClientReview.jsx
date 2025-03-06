@@ -6,34 +6,34 @@ import "slick-carousel/slick/slick-theme.css";
 
 const reviews = [
   {
-    name: "Leslie ",
-    role: "Freelance React Developer",
+    name: "Leslie Carter ",
+    role: "USA",
     image: "https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-male-1.png",
-    review: "You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change."
+    review: "We've been sourcing jeans from this manufacturer for over two years now, and the quality is consistently top-notch. The stitching, fabric, and fit are exactly what our customers demand. Plus, their bulk pricing and timely delivery make them our go-to supplier!"
   },
   {
-    name: "Jacob Jones",
-    role: "Digital Marketer",
+    name: "Sophia Martinez",
+    role: "Spain",
+    image: "https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-female.png",
+    review: "Excellent service and premium denim quality! The company ensures smooth logistics and hassle-free exports. Our customers love the durability of these jeans, making it a profitable investment for our business."
+  },
+  {
+    name: "Ahmed Khan",
+    role: "UAE",
     image: "https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-male-2.png",
-    review: "Simply the best. Better than all the rest. I’d recommend this product to beginners and advanced users."
+    review: "The best denim supplier we've worked with! Their attention to detail and ability to customize designs according to our requirements have helped us grow our fashion brand. Highly recommend for any wholesale buyers looking for reliability and quality"
   },
   {
-    name: "Jenny Wilson",
-    role: "Graphic Designer",
-    image: "https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-female.png",
-    review: "I cannot believe that I have got a brand new landing page after getting Omega. It was super easy to edit and publish."
-  },
-  {
-    name: "Michael Smith",
-    role: "Software Engineer",
+    name: "Lisa Wong",
+    role: "Australia",
     image: "https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-male-1.png",
-    review: "Great experience! The UI is smooth, and the features work like a charm."
+    review: "Great communication, competitive prices, and superior craftsmanship! We’ve placed multiple bulk orders, and each time, the jeans exceed our expectations. Perfect for retailers looking to stock high-quality denim."
   },
   {
-    name: "Emma Brown",
-    role: "UI/UX Designer",
+    name: "Ricardo Silva",
+    role: "Brazil",
     image: "https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-female.png",
-    review: "Absolutely love the service. It has helped streamline my workflow significantly!"
+    review: "As a wholesaler, I need suppliers I can trust, and this company delivers on every front – consistency, affordability, and excellent customer service. Their jeans are stylish, durable, and always in demand in our market."
   }
 ];
 
@@ -43,7 +43,7 @@ const ClientReview = () => {
     speed: 500,
     slidesToShow: 3, // Show 3 slides at a time
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 3000,
     responsive: [
       {

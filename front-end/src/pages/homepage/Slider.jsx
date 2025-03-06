@@ -1,31 +1,15 @@
-import React from 'react';
+import React, {useRef} from 'react';
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import Home1 from "../../assets/images/home1.webp";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import Banner1 from "../../assets/images/home-banner-1.jpg"
+import Banner2 from "../../assets/images/home-banner-2.jpg"
+import Banner3 from "../../assets/images/home-banner-3.jpg"
+import Banner4 from "../../assets/images/home-banner-4.png"
 
 const HomeSlider = () => {
-  const slides = [
-    {
-      id: 1,
-      title: "Having all types of Jeans world of grocery",
-      description: "Most Exclusive and demanding Jeans in the world...",
-      discount: "-30% Off",
-      offer: "Exclusive Offer",
-      image: Home1,
-      buttonText: "Shop Now →",
-    },
-    {
-      id: 2,
-      title: "Discover the Latest Trends in Grocery Fashion",
-      description: "Get the best styles at the best prices...",
-      discount: "-20% Off",
-      offer: "Limited Offer",
-      image: Home1,
-      buttonText: "Explore Now →",
-    },
-
-  ];
 
   const settings = {
     infinite: true,
@@ -33,55 +17,80 @@ const HomeSlider = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
+    
     autoplaySpeed: 3000,
   };
 
+  const sliderRef = useRef(null);
   return (
-    <Slider {...settings}>
-      {slides.map((slide) => (
-        <div key={slide.id}>
-          <div className="my-5">
-            <div className="grid grid-cols-1 lg:grid-cols-12 home-bg1 py-10 rounded-lg shadow-md items-center">
-              {/* Text Section */}
-              <div className="lg:col-span-6 col-span-12 px-5 lg:pl-20">
-                <div className="flex items-center space-x-2 mb-2">
-                  <span className="text-sm font-semibold text-gray-600">
-                    {slide.offer}
-                  </span>
-                  <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                    {slide.discount}
-                  </span>
-                </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
-                  {slide.title.split("<br />").map((line, index) => (
-                    <span key={index}>
-                      {line}
-                      <br />
-                    </span>
-                  ))}
-                </h1>
-                <p className="text-gray-600 mt-4 text-sm md:text-base">
-                  {slide.description}
-                </p>
-                <button className="mt-6 bg-blue-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-blue-700 transition">
-                  {slide.buttonText}
-                </button>
-              </div>
+    <>
+    <div className="relative md:block sm:hidden">
+  <button
+    className="absolute left-4 mt-[15%] items-center transform bg-blue-200 p-3 border-[2px] border-blue-700 rounded-full hover:bg-blue-700 hover:text-white transition z-10"
+    onClick={() => sliderRef.current.slickPrev()}
+  >
+    <FaAngleLeft size={23} />
+  </button>
+  <button
+    className="absolute right-4 mt-[15%] items-center transform bg-blue-200 p-3 border-[2px] border-blue-700 rounded-full hover:bg-blue-700 hover:text-white transition z-10"
+    onClick={() => sliderRef.current.slickNext()}
+  >
+    <FaAngleRight size={23} />
+  </button>
+</div>
 
-              {/* Image Section */}
-              <div className="lg:col-span-6 col-span-12 sm:hidden lg:flex justify-end items-center mt-6 lg:mt-0">
-                <img
-                  src={slide.image}
-                  alt="Slider Image"
-                  className="lg:w-2/5 md:w-3/5 w-4/5 max-w-xs lg:max-w-md bg-transparent object-contain"
-                />
-              </div>
-
+      <Slider {...settings} ref={sliderRef} >
+         {/* Header with Navigation Buttons */}
+         
+        <div className='relative w-full homeslide sm:h-[185px] md:h-[310px] lg:h-[550px]'>
+          <img src={Banner1} alt="" className='h-full w-full object-cover' />
+        </div>
+        <div className="relative w-full homeslide sm:h-[185px] md:h-[310px] lg:h-[550px]">
+          <img src={Banner2} alt="" className="h-full w-full object-cover" />
+          <div className="absolute top-1/2 sm:left-0 md:left-10 transform -translate-y-1/2 text-gray-700 p-6 text-width sm:w-[90%] md:w-[40%]">
+            <div className="flex items-center space-x-2 mb-2">
+              <span className="text-sm font-semibold text-gray-600">
+                Limited Offer
+              </span>
+              <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                -20% Off
+              </span>
             </div>
+            <h2 className="sm:text-xl home-heading lg:text-6xl font-semibold capitalize leading-tight" style={{ fontFamily: "serif" }}>Having all types of Jeans world of grocery.</h2>
+            <p className="md:block sm:hidden home-desc mt-2 sm:text-sm md:text-lg">
+              Boost your inventory with jeans designed for modern men—quality and affordability in every pair.
+            </p>
+            <button className=" sm:mt-4 md:mt-6 bg-blue-600 text-white px-4 sm:py-1 md:py-2 rounded-full hover:bg-blue-700 transition">
+              Shop Now →
+            </button>
           </div>
         </div>
-      ))}
-    </Slider>
+        <div className="relative w-full homeslide sm:h-[185px] md:h-[310px] lg:h-[550px]">
+          <img src={Banner4} alt="" className="h-full w-full object-cover" />
+        </div>
+        <div className="relative w-full homeslide sm:h-[185px] md:h-[310px] lg:h-[550px]">
+          <img src={Banner3} alt="" className="h-full w-full object-cover" />
+          <div className="absolute top-1/2 sm:left-0 md:left-10 transform -translate-y-1/2 text-gray-700 p-6 text-width sm:w-[90%] md:w-[40%]">
+            <div className="flex items-center space-x-2 mb-2">
+              <span className="text-sm font-semibold text-gray-600">
+                Exclusive Offer
+              </span>
+              <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                -30% Off
+              </span>
+            </div>
+            <h2 className="sm:text-xl home-heading lg:text-6xl font-semibold capitalize leading-tight" style={{ fontFamily: "serif" }}>Discover the Latest Trends in Grocery Fashion.</h2>
+            <p className="md:block sm:hidden home-desc mt-2 sm:text-sm md:text-lg">
+              Stay ahead in the fashion game with bulk denim orders that offer both style and durability.
+            </p>
+            <button className=" sm:mt-4 md:mt-6 bg-blue-600 text-white px-4 sm:py-1 md:py-2 rounded-full hover:bg-blue-700 transition">
+              Explore Now →
+            </button>
+          </div>
+        </div>
+
+      </Slider>
+    </>
 
   );
 };

@@ -36,6 +36,12 @@ const PopularProducts = () => {
             {
                 breakpoint: 768,
                 settings: {
+                    slidesToShow: 2,
+                },
+            },
+            {
+                breakpoint: 400,
+                settings: {
                     slidesToShow: 1,
                 },
             },
@@ -55,16 +61,16 @@ const PopularProducts = () => {
                 </div>
 
                 {/* Header with Navigation Buttons */}
-                <div className="flex justify-end items-center mx-auto px-4">
-                    <div className="flex gap-3">
+                <div className="flex justify-end items-center mx-auto px-4 ">
+                    <div className="flex gap-3 ">
                         <button
-                            className="bg-gray-800 text-white p-2 hover:bg-gray-600 transition"
+                            className="bg-gray-800 text-white p-2 hover:bg-gray-600 transition md:block sm:hidden"
                             onClick={() => sliderRef.current.slickPrev()}
                         >
                             <FaCircleChevronLeft size={30} />
                         </button>
                         <button
-                            className="bg-gray-800 text-white p-2 hover:bg-gray-600 transition"
+                            className="bg-gray-800 text-white p-2 hover:bg-gray-600 transition md:block sm:hidden"
                             onClick={() => sliderRef.current.slickNext()}
                         >
                             <FaCircleChevronRight size={30} />
