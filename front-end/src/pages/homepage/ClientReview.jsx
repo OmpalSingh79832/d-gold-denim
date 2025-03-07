@@ -58,18 +58,18 @@ const ClientReview = () => {
   };
 
   return (
-    <section className="py-12 bg-gray-50 sm:py-0 lg:py-20">
+    <section className="py-12 bg-gray-50 sm:pt-4 lg:py-20">
       <div className="px-4 mx-auto w-[100%] sm:px-0 lg:px-8">
         <div className="flex flex-col items-center">
           <div className="text-center">
-            <h1 className="text-3xl text-gray-900 capitalize">
+            <h1 className="sm:text-sm md:text-3xl text-gray-900 capitalize">
               Our happy clients <span className="text-[#27497b] font-bold">say about us</span>
             </h1>
             <div className="border-b-2 border-black w-[80%] mx-auto mt-4"></div>
           </div>
 
           {/* Background Gradient */}
-          <div className="relative mt-10 md:mt-24 w-full">
+          <div className="relative sm:mt-0 md:mt-10 w-full">
             <div className="absolute -inset-x-1 inset-y-16 md:-inset-x-2 md:-inset-y-6">
               <div
                 className="w-full h-full max-w-5xl mx-auto rounded-3xl opacity-30 blur-lg filter"

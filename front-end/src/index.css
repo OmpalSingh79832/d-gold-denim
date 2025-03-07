@@ -3,13 +3,17 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:wght@200..800&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
 
+body {
+  font-family: 'Poppins', sans-serif;
+}
 
 body {
   margin: 0;
   padding: auto;
+  overflow-x: hidden;
 }
 html {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   scroll-behavior: smooth;
 }
 .home-bg1{
@@ -44,7 +48,11 @@ html {
   background-size: cover;
   
 }
-
+@media (min-width: 300px) and (max-width: 769px) {
+  .explore-every-part{
+    padding: 0px 0px !important;
+  }
+}
 @media (min-width: 450px) and (max-width: 769px) {
   .for-md-screen{
   grid-template-columns: repeat(2, 1fr) !important;

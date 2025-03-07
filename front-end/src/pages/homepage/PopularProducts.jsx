@@ -54,7 +54,7 @@ const PopularProducts = () => {
             {/* Our Top Products */}
             <div className='text-center py-6'>
                 <div className="w-fit mx-auto">
-                    <h1 className="text-3xl text-center text-gray-900">
+                    <h1 className="sm:text-xl md:text-3xl text-center text-gray-900">
                         Our <span className="text-[#27497b] font-bold">Popular Products</span>
                     </h1>
                     <div className="border-b-2 border-black w-[80%] mx-auto mt-4"></div>
@@ -78,7 +78,7 @@ const PopularProducts = () => {
                     </div>
                 </div>
 
-                <div className="mx-auto sm:py-10">
+                <div className="mx-auto sm:py-4">
                     <Slider ref={sliderRef} {...sliderSettings}>
                         {popular.slice(0, 20).map((item) => (
                             <Link key={item._id} to={`/product-details/${item._id}`} className="group px-2">
@@ -87,7 +87,7 @@ const PopularProducts = () => {
                                     alt={item?.name}
                                     className="aspect-square w-full rounded-lg bg-gray-200 group-hover:opacity-75 xl:aspect-[7/8]"
                                 />
-                                <h3 className="mt-4 text-lg font-bold">{item?.name}</h3>
+                                <h3 className="mt-4 sm:text-sm md:text-lg font-bold">{item?.name}</h3>
                                 <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">
                                     Get More →
                                 </button>

@@ -16,7 +16,7 @@ const HomeSlider = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    // autoplay: true,
     
     autoplaySpeed: 3000,
   };
@@ -42,10 +42,10 @@ const HomeSlider = () => {
       <Slider {...settings} ref={sliderRef} >
          {/* Header with Navigation Buttons */}
          
-        <div className='relative w-full homeslide sm:h-[185px] md:h-[310px] lg:h-[550px]'>
+        <div className='relative w-full homeslide sm:h-[155px] md:h-[310px] lg:h-[550px]'>
           <img src={Banner1} alt="" className='h-full w-full object-cover' />
         </div>
-        <div className="relative w-full homeslide sm:h-[185px] md:h-[310px] lg:h-[550px]">
+        <div className="relative w-full homeslide sm:h-[155px] md:h-[310px] lg:h-[550px]">
           <img src={Banner2} alt="" className="h-full w-full object-cover" />
           <div className="absolute top-1/2 sm:left-0 md:left-10 transform -translate-y-1/2 text-gray-700 p-6 text-width sm:w-[90%] md:w-[40%]">
             <div className="flex items-center space-x-2 mb-2">
@@ -65,10 +65,10 @@ const HomeSlider = () => {
             </button>
           </div>
         </div>
-        <div className="relative w-full homeslide sm:h-[185px] md:h-[310px] lg:h-[550px]">
+        <div className="relative w-full homeslide sm:h-[155px] md:h-[310px] lg:h-[550px]">
           <img src={Banner4} alt="" className="h-full w-full object-cover" />
         </div>
-        <div className="relative w-full homeslide sm:h-[185px] md:h-[310px] lg:h-[550px]">
+        <div className="relative w-full homeslide sm:h-[155px] md:h-[310px] lg:h-[550px]">
           <img src={Banner3} alt="" className="h-full w-full object-cover" />
           <div className="absolute top-1/2 sm:left-0 md:left-10 transform -translate-y-1/2 text-gray-700 p-6 text-width sm:w-[90%] md:w-[40%]">
             <div className="flex items-center space-x-2 mb-2">
