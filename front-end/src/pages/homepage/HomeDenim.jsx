@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from "react-router-dom"
 import MenImg1 from "../../assets/products/p1.1.webp";
-import KidsImg1 from "../../assets/products/p2.1.webp";
-import WomenImg1 from "../../assets/products/p3.1.webp";
-import woImg1 from "../../assets/products//p4.1.webp";
 import Img11 from "../../assets/images/what-we-do1.jpg";
 import Img12 from "../../assets/images/what-we-do2.jpg";
 import Img13 from "../../assets/images/what-we-do3.jpg";
@@ -16,7 +13,6 @@ import Img3 from '../../assets/images/6.png';
 import Img4 from '../../assets/images/7.jpg';
 import Img5 from '../../assets/images/8.png';
 import Img6 from '../../assets/images/indiamart.jpg';
-import Img7 from '../../assets/images/logo2.png';
 import ClientReview from './ClientReview';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPopularProducts, getTopProducts } from '../../redux/slices/productReduer';
@@ -150,11 +146,11 @@ const HomeDenim = () => {
               <div className="border-b-2 border-black w-[80%] mt-4"></div>
             </div>
 
-            <p className="text-gray-700 sm:text-sm md:text-lg leading-relaxed mb-6 text-justify" style={{ fontFamily: "poppins" }}>
-              Since <strong>2005, D-Gold Clothing Company</strong> has been a name synonymous with <strong>quality, innovation, and craftsmanship</strong> in the world of denim. Founded by <strong>Mr. Rashid Malik</strong>, our company has established itself as a <strong>leading manufacturer, wholesaler, and global exporter</strong> of premium <strong>fashion jeans</strong>. With a strong commitment to excellence, we serve businesses worldwide, delivering <strong>high-quality denim</strong> that blends <strong>style, comfort, and durability</strong>.
+            <p className="text-gray-700 sm:text-sm md:text-lg leading-relaxed mb-6 sm:text-start md:text-justify" style={{ fontFamily: "poppins" }}>
+              Since <strong>2005, D-Gold Clothing Company</strong> has been a name synonymous with <strong>quality, innovation, and craftsmanship</strong> in the world of denim. <br /> Founded by <strong>Mr. Rashid Malik</strong>, our company has established itself as a <strong>leading manufacturer, wholesaler, and global exporter</strong> of premium <strong>fashion jeans</strong>. With a strong commitment to excellence, we serve businesses worldwide, delivering <strong>high-quality denim</strong> that blends <strong>style, comfort, and durability</strong>.
             </p>
             <h3 className='text-xl font-bold'>Global Reach -</h3>
-            <p className="text-gray-700 sm:text-sm md:text-lg leading-relaxed mb-6 text-justify">
+            <p className="text-gray-700 sm:text-sm md:text-lg leading-relaxed mb-6 sm:text-start md:text-justify">
               We proudly <strong>export our premium denim worldwide</strong>, catering to wholesalers, retailers, and fashion brands across <strong>Europe, the USA, the Middle East, Asia, and beyond</strong>. Whether you are a <strong>boutique owner, a retail chain, or an online fashion store</strong>, we provide <strong>custom manufacturing, private labeling, and bulk</strong> orders to meet your business needs.
             </p>
             <Link to={"/about-us"}>
@@ -237,7 +233,7 @@ const HomeDenim = () => {
               className="bg-white rounded-l shadow-2xl "
             >
               {/* Image with Hover Effect */}
-              <div className="relative w-full h-72 overflow-hidden">
+              <div className="relative w-full sm:h-40 md:h-72 overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -291,29 +287,29 @@ const HomeDenim = () => {
       <PopularProducts />
 
       {/* Trusted Partners */}
-      <div className='py-10 bg-gray-200'>
-        <div className="mt-10 w-fit mx-auto">
+      <div className='sm:py-2 md:py-10 bg-gray-200'>
+        <div className="sm:mt-2 md:mt-10 w-fit mx-auto">
           <h1 className="sm:text-xl md:text-3xl text-center text-gray-900">
             Our Trusted <span className="text-[#27497b] font-bold">Partners</span>
           </h1>
           <div className="border-b-2 border-black w-[80%] mx-auto mt-4"></div>
         </div>
         <div class="relative flex overflow-x-hidden">
-          <div class="py-12 animate-marquee whitespace-nowrap flex">
-            <div class="tex mx-4"><img src={Img1} className="w-full h-fit rounded-md" alt="" /></div>
-            <div class="tex mx-4"><img src={Img2} className="w-full h-fit rounded-md" alt="" /></div>
-            <div class="tex mx-4"><img src={Img3} className="w-full h-fit rounded-md" alt="" /></div>
-            <div class="tex mx-4"><img src={Img4} className="w-full h-fit rounded-md" alt="" /></div>
-            <div class="tex mx-4"><img src={Img5} className="w-full h-fit rounded-md" alt="" /></div>
-            <div class="tex mx-4"><img src={Img6} className="w-full h-fit rounded-md" alt="" /></div>
+          <div class="sm:py-6 md:py-12 animate-marquee whitespace-nowrap flex">
+            <div class="sm:w-[130px] md:w-full h-full mx-4"><img src={Img1} className="w-full h-fit rounded-md" alt="" /></div>
+            <div class="sm:w-[130px] md:w-full h-full mx-4"><img src={Img2} className="w-full h-fit rounded-md" alt="" /></div>
+            <div class="sm:w-[130px] md:w-full h-full mx-4"><img src={Img3} className="w-full h-fit rounded-md" alt="" /></div>
+            <div class="sm:w-[130px] md:w-full h-full mx-4"><img src={Img4} className="w-full h-fit rounded-md" alt="" /></div>
+            <div class="sm:w-[130px] md:w-full h-full mx-4"><img src={Img5} className="w-full h-fit rounded-md" alt="" /></div>
+            <div class="sm:w-[130px] md:w-full h-full mx-4"><img src={Img6} className="w-full h-fit rounded-md" alt="" /></div>
           </div>
-          <div class="absolute top-0 py-12 animate-marquee2 whitespace-nowrap flex">
-            <div class="tex mx-4"><img src={Img1} className="w-full h-fit rounded-md" alt="" /></div>
-            <div class="tex mx-4"><img src={Img2} className="w-full h-fit rounded-md" alt="" /></div>
-            <div class="tex mx-4"><img src={Img3} className="w-full h-fit rounded-md" alt="" /></div>
-            <div class="tex mx-4"><img src={Img4} className="w-full h-fit rounded-md" alt="" /></div>
-            <div class="tex mx-4"><img src={Img5} className="w-full h-fit rounded-md" alt="" /></div>
-            <div class="tex mx-4"><img src={Img6} className="w-full h-fit rounded-md" alt="" /></div>
+          <div class="absolute top-0 sm:py-6 md:py-12 animate-marquee2 whitespace-nowrap flex">
+            <div class="sm:w-[130px] md:w-full h-full mx-4"><img src={Img1} className="w-full h-fit rounded-md" alt="" /></div>
+            <div class="sm:w-[130px] md:w-full h-full mx-4"><img src={Img2} className="w-full h-fit rounded-md" alt="" /></div>
+            <div class="sm:w-[130px] md:w-full h-full mx-4"><img src={Img3} className="w-full h-fit rounded-md" alt="" /></div>
+            <div class="sm:w-[130px] md:w-full h-full mx-4"><img src={Img4} className="w-full h-fit rounded-md" alt="" /></div>
+            <div class="sm:w-[130px] md:w-full h-full mx-4"><img src={Img5} className="w-full h-fit rounded-md" alt="" /></div>
+            <div class="sm:w-[130px] md:w-full h-full mx-4"><img src={Img6} className="w-full h-fit rounded-md" alt="" /></div>
           </div>
         </div>
       </div>

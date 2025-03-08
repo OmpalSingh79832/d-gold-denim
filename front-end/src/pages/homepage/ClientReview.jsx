@@ -62,7 +62,7 @@ const ClientReview = () => {
       <div className="px-4 mx-auto w-[100%] sm:px-0 lg:px-8">
         <div className="flex flex-col items-center">
           <div className="text-center">
-            <h1 className="sm:text-sm md:text-3xl text-gray-900 capitalize">
+            <h1 className="sm:text-xl md:text-3xl text-gray-900 capitalize">
               Our happy clients <span className="text-[#27497b] font-bold">say about us</span>
             </h1>
             <div className="border-b-2 border-black w-[80%] mx-auto mt-4"></div>
