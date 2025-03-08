@@ -48,7 +48,7 @@ const Header = () => {
     <>
       <nav>
         <div className="bg-black text-white text-center">
-          <p className="py-2 text-lg top-menu" ref={typewriterRef}></p>
+          <p className="py-2 sm:text-sm md:text-lg top-menu" ref={typewriterRef}></p>
         </div>
         <div className="w-[90%] mx-auto md:py-0 lg:py-2">
           <div className="sm:hidden md:hidden lg:block">
