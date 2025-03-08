@@ -114,62 +114,62 @@ const AboutUs = () => {
                 <p className="mb-12 text-lg text-gray-500 mx-auto">Here is a few of the awesome Services we provide.</p>
 
                 <div className="w-full grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-  <div className="relative h-full">
-    <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-indigo-500 rounded-lg"></span>
-    <div className="relative h-full p-5 bg-white border-2 border-indigo-500 rounded-lg">
-      <h3 className="my-2 text-lg font-bold text-gray-800">Branded Jeans</h3>
-      <p className="mt-3 mb-1 text-xs font-medium text-indigo-500 uppercase">------------</p>
-      <p className="text-gray-600">
-        Branded jeans are high-quality denim products crafted with premium materials, combining stylish designs and exceptional durability for a superior fit and comfort.
-      </p>
-    </div>
-  </div>
-  <div className="relative h-full">
-    <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-purple-500 rounded-lg"></span>
-    <div className="relative h-full p-5 bg-white border-2 border-purple-500 rounded-lg">
-      <h3 className="my-2 text-lg font-bold text-gray-800">Branded Shirts</h3>
-      <p className="mt-3 mb-1 text-xs font-medium text-purple-500 uppercase">------------</p>
-      <p className="text-gray-600">
-        Shirts are versatile garments designed for comfort and style, available in various fabrics, patterns, and fits to suit every occasion and preference.
-      </p>
-    </div>
-  </div>
+                    <div className="relative h-full">
+                        <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-indigo-500 rounded-lg"></span>
+                        <div className="relative h-full p-5 bg-white border-2 border-indigo-500 rounded-lg">
+                            <h3 className="my-2 text-lg font-bold text-gray-800">Branded Jeans</h3>
+                            <p className="mt-3 mb-1 text-xs font-medium text-indigo-500 uppercase">------------</p>
+                            <p className="text-gray-600">
+                                Branded jeans are high-quality denim products crafted with premium materials, combining stylish designs and exceptional durability for a superior fit and comfort.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="relative h-full">
+                        <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-purple-500 rounded-lg"></span>
+                        <div className="relative h-full p-5 bg-white border-2 border-purple-500 rounded-lg">
+                            <h3 className="my-2 text-lg font-bold text-gray-800">Branded Shirts</h3>
+                            <p className="mt-3 mb-1 text-xs font-medium text-purple-500 uppercase">------------</p>
+                            <p className="text-gray-600">
+                                Shirts are versatile garments designed for comfort and style, available in various fabrics, patterns, and fits to suit every occasion and preference.
+                            </p>
+                        </div>
+                    </div>
 
-  </div>
-  <div className="w-full grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-16">
-  <div className="relative h-full">
-    <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-blue-400 rounded-lg"></span>
-    <div className="relative h-full p-5 bg-white border-2 border-blue-400 rounded-lg">
-      <h3 className="my-2 text-lg font-bold text-gray-800">Denim Jackets</h3>
-      <p className="mt-3 mb-1 text-xs font-medium text-blue-400 uppercase">------------</p>
-      <p className="text-gray-600">
-        Denim jackets are timeless outerwear pieces made from durable denim fabric, offering a perfect blend of style, comfort, and practicality for all seasons.
-      </p>
-    </div>
-  </div>
+                </div>
+                <div className="w-full grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-16">
+                    <div className="relative h-full">
+                        <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-blue-400 rounded-lg"></span>
+                        <div className="relative h-full p-5 bg-white border-2 border-blue-400 rounded-lg">
+                            <h3 className="my-2 text-lg font-bold text-gray-800">Denim Jackets</h3>
+                            <p className="mt-3 mb-1 text-xs font-medium text-blue-400 uppercase">------------</p>
+                            <p className="text-gray-600">
+                                Denim jackets are timeless outerwear pieces made from durable denim fabric, offering a perfect blend of style, comfort, and practicality for all seasons.
+                            </p>
+                        </div>
+                    </div>
 
-  <div className="relative h-full">
-    <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-yellow-400 rounded-lg"></span>
-    <div className="relative h-full p-5 bg-white border-2 border-yellow-400 rounded-lg">
-      <h3 className="my-2 text-lg font-bold text-gray-800">Ladies' Jeans</h3>
-      <p className="mt-3 mb-1 text-xs font-medium text-yellow-400 uppercase">------------</p>
-      <p className="text-gray-600">
-        Ladies' jeans are stylish and comfortable denim wear, designed in various cuts and fits to flatter every body type and suit diverse fashion preferences.
-      </p>
-    </div>
-  </div>
+                    <div className="relative h-full">
+                        <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-yellow-400 rounded-lg"></span>
+                        <div className="relative h-full p-5 bg-white border-2 border-yellow-400 rounded-lg">
+                            <h3 className="my-2 text-lg font-bold text-gray-800">Ladies' Jeans</h3>
+                            <p className="mt-3 mb-1 text-xs font-medium text-yellow-400 uppercase">------------</p>
+                            <p className="text-gray-600">
+                                Ladies' jeans are stylish and comfortable denim wear, designed in various cuts and fits to flatter every body type and suit diverse fashion preferences.
+                            </p>
+                        </div>
+                    </div>
 
-  <div className="relative h-full">
-    <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-green-500 rounded-lg"></span>
-    <div className="relative h-full p-5 bg-white border-2 border-green-500 rounded-lg">
-      <h3 className="my-2 text-lg font-bold text-gray-800">Shorts & Skirts</h3>
-      <p className="mt-3 mb-1 text-xs font-medium text-green-500 uppercase">------------</p>
-      <p className="text-gray-600">
-        Shorts and skirts are trendy and comfortable wardrobe staples, available in various styles and fabrics to suit casual and chic looks.
-      </p>
-    </div>
-  </div>
-</div>
+                    <div className="relative h-full">
+                        <span className="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-green-500 rounded-lg"></span>
+                        <div className="relative h-full p-5 bg-white border-2 border-green-500 rounded-lg">
+                            <h3 className="my-2 text-lg font-bold text-gray-800">Shorts & Skirts</h3>
+                            <p className="mt-3 mb-1 text-xs font-medium text-green-500 uppercase">------------</p>
+                            <p className="text-gray-600">
+                                Shorts and skirts are trendy and comfortable wardrobe staples, available in various styles and fabrics to suit casual and chic looks.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
