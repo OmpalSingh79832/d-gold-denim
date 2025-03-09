@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../api";
+import Cookies from "js-cookie";
 
 // Async Thunks
 export const getProducts = createAsyncThunk(
@@ -90,6 +91,23 @@ export const addProduct = createAsyncThunk(
   }
 );
 
+export const login = createAsyncThunk(
+  "products/login",
+  async (formData, { rejectWithValue }) => {
+    try {
+
+      const response = await api.post(`/login`, formData);
+      Cookies.set("token", response.data.token)
+      return response.data;
+    } catch (error) {
+      console.error("Error login credentially:", error.response);
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to add product"
+      );
+    }
+  }
+);
+
 
 
 const initialState = {
@@ -128,8 +146,7 @@ const productsSlice = createSlice({
       .addCase(getProducts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      });
-    builder
+      })
       .addCase(getPopularProducts.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -141,8 +158,7 @@ const productsSlice = createSlice({
       .addCase(getPopularProducts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      });
-    builder
+      })
       .addCase(getTopProducts.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -154,10 +170,10 @@ const productsSlice = createSlice({
       .addCase(getTopProducts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      });
+      })
 
     // Handle getProductById
-    builder
+ 
       .addCase(getProductById.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -196,6 +212,21 @@ const productsSlice = createSlice({
       .addCase(addProduct.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload; 
+      })
+
+      // login
+
+      .addCase(login.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.loading = false;
+        state.login = action.payload;
+      })
+      .addCase(login.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       })
   },
 });

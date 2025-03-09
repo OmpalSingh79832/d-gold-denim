@@ -10,6 +10,7 @@ import Blog from './pages/blog/Blog'
 import HomeProduct from './components/ProductCard/HomeProduct'
 import ProductPage from './components/ProductCard/ProductDetails'
 import Index from './dashboard'
+import Login from './dashboard/Login'
 
 
 
@@ -29,6 +30,8 @@ function App() {
           <Route path="/catalogue" element={<HomeProduct />} />
           <Route path="/product-details/:productId" element={<ProductPage />} />
           <Route path="/dashboard" element={<Index />} />
+          <Route path="/login" element={<Login />} />
+
         </Routes>
         <Footer />
       </>
