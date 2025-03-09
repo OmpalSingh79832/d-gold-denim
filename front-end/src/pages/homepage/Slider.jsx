@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import Home1 from "../../assets/images/home1.webp";
 import "slick-carousel/slick/slick.css";
@@ -16,32 +16,32 @@ const HomeSlider = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // autoplay: true,
-    
+    autoplay: true,
+
     autoplaySpeed: 3000,
   };
 
   const sliderRef = useRef(null);
   return (
     <>
-    <div className="relative md:block sm:hidden">
-  <button
-    className="absolute left-4 mt-[15%] items-center transform bg-blue-200 p-3 border-[2px] border-blue-700 rounded-full hover:bg-blue-700 hover:text-white transition z-10"
-    onClick={() => sliderRef.current.slickPrev()}
-  >
-    <FaAngleLeft size={23} />
-  </button>
-  <button
-    className="absolute right-4 mt-[15%] items-center transform bg-blue-200 p-3 border-[2px] border-blue-700 rounded-full hover:bg-blue-700 hover:text-white transition z-10"
-    onClick={() => sliderRef.current.slickNext()}
-  >
-    <FaAngleRight size={23} />
-  </button>
-</div>
+      <div className="relative md:block sm:hidden">
+        <button
+          className="absolute left-4 mt-[15%] items-center transform bg-blue-200 p-3 border-[2px] border-blue-700 rounded-full hover:bg-blue-700 hover:text-white transition z-10"
+          onClick={() => sliderRef.current.slickPrev()}
+        >
+          <FaAngleLeft size={23} />
+        </button>
+        <button
+          className="absolute right-4 mt-[15%] items-center transform bg-blue-200 p-3 border-[2px] border-blue-700 rounded-full hover:bg-blue-700 hover:text-white transition z-10"
+          onClick={() => sliderRef.current.slickNext()}
+        >
+          <FaAngleRight size={23} />
+        </button>
+      </div>
 
       <Slider {...settings} ref={sliderRef} >
-         {/* Header with Navigation Buttons */}
-         
+        {/* Header with Navigation Buttons */}
+
         <div className='relative w-full homeslide sm:h-[155px] md:h-[310px] lg:h-[550px]'>
           <img src={Banner1} alt="" className='h-full w-full object-cover' />
         </div>
