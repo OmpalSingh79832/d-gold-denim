@@ -1,4 +1,5 @@
 import React from "react";
+import Cookies from "js-cookie"
 import {
   FaTachometerAlt,
   FaMoneyCheckAlt,
@@ -8,8 +9,15 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { MdCloudUpload } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ setActivePage, isOpen, toggleSidebar }) => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    Cookies.remove('token')
+    navigate('/login');
+  }
   return (
     <div className="relative h-full">
       {/* Sidebar */}
@@ -87,6 +95,15 @@ const Sidebar = ({ setActivePage, isOpen, toggleSidebar }) => {
             </button>
           </li>
 
+          <li>
+            <button
+              className="w-full text-left flex items-center p-2 hover:bg-gray-200 text-white hover:text-black rounded"
+              onClick={logout}
+            >
+              <FaUser className="mr-2" />
+              Log Out
+            </button>
+          </li>
         </ul>
       </div>
     </div>

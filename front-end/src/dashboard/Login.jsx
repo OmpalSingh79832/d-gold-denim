@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { login } from '../redux/slices/productReduer';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
+
     const dispatch = useDispatch();
 
     // State to store email and password
@@ -29,6 +32,7 @@ const Login = () => {
         }
         if (userData) {
             toast.success("Login successful!");
+            navigate("/dashboard");
         }
     }, [error, userData]);
 
@@ -79,9 +83,7 @@ const Login = () => {
                                 <label className="block text-gray-700 text-sm font-bold mb-2">
                                     Password
                                 </label>
-                                <a href="#" className="text-xs text-gray-500">
-                                    Forget Password?
-                                </a>
+
                             </div>
                             <input
                                 className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
@@ -100,13 +102,7 @@ const Login = () => {
                             </button>
                         </div>
                     </form>
-                    <div className="mt-4 flex items-center justify-between">
-                        <span className="border-b w-1/5 md:w-1/4" />
-                        <a href="#" className="text-xs text-gray-500 uppercase">
-                            or sign up
-                        </a>
-                        <span className="border-b w-1/5 md:w-1/4" />
-                    </div>
+
                 </div>
             </div>
 

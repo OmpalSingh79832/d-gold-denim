@@ -11,6 +11,7 @@ import HomeProduct from './components/ProductCard/HomeProduct'
 import ProductPage from './components/ProductCard/ProductDetails'
 import Index from './dashboard'
 import Login from './dashboard/Login'
+import PrivateRoute from './privateRoute/PrivateRoute'
 
 
 
@@ -29,8 +30,10 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/catalogue" element={<HomeProduct />} />
           <Route path="/product-details/:productId" element={<ProductPage />} />
-          <Route path="/dashboard" element={<Index />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/" element={<PrivateRoute />} >
+            <Route path="dashboard" element={<Index />} />
+          </Route>
 
         </Routes>
         <Footer />
