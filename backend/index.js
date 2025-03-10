@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const multer = require("multer");
 const productRoute = require("./route/productRoute");
+
+const contactRoute = require('./route/contact');
+
 require("dotenv").config();
 const app = express();
 const db = require("./connectdb");
@@ -16,7 +19,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use("/products", express.static("upload/products"));
-
+app.use('/api/contact', contactRoute);  // Add the route for handling enquiries
 db();
 
 app.use("/api", productRoute);

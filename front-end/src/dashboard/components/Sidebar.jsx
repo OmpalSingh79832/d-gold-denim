@@ -1,11 +1,8 @@
 import React from "react";
 import Cookies from "js-cookie"
 import {
-  FaTachometerAlt,
-  FaMoneyCheckAlt,
   FaProjectDiagram,
   FaUser,
-  FaPlus,
   FaTimes,
 } from "react-icons/fa";
 import { MdCloudUpload } from "react-icons/md";
@@ -80,6 +77,19 @@ const Sidebar = ({ setActivePage, isOpen, toggleSidebar }) => {
             >
               <FaProjectDiagram className="mr-2" />
               Top Product
+            </button>
+          </li>
+
+          <li>
+            <button
+              className="w-full text-left flex items-center p-2 hover:bg-gray-200 text-white hover:text-black rounded"
+              onClick={() => {
+                setActivePage("contactform");
+                toggleSidebar();
+              }}
+            >
+              <FaProjectDiagram className="mr-2" />
+              Contact Form 
             </button>
           </li>
           <li>

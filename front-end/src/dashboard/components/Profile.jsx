@@ -1,84 +1,122 @@
-import React from "react";
-import { FaEdit } from "react-icons/fa"; // Icon for edit functionality
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import { login } from '../../redux/slices/productReduer';
+import { useNavigate } from 'react-router-dom';
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Profile = () => {
-    // Array holding profile data
-    const profileData = {
-        name: "rj surya",
-        phone: "+00000000",
-        dob: "29Aug2001",
-        email: "rjsurya90122@gmail.com",
-        role: "Seller",
-        status: "Active",
-        shopDetails: {
-            shopName: "Civil",
-            division: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
-            district: "Nagaur",
-            subDistrict: "Degana",
-        },
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    
+    // Retrieve user data from Redux state
+    const { loading, error, user: userData } = useSelector((state) => state.product);
+    
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [oldPassword, setOldPassword] = useState("");
+    const [newPassword, setNewPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+
+    // Function to handle form submission for login
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await dispatch(login({ email, password })).unwrap();
+            setTimeout(() => {
+                toast.success("Login successful!");
+            }, 500);
+
+            setTimeout(() => {
+                navigate("/dashboard");
+            }, 2000);
+        } catch (err) {
+            toast.error(err.message || "Login failed.");
+        }
     };
+
+    // Handle password visibility toggle
+    const togglePasswordVisibility = () => setShowPassword(!showPassword);
+
+    // If data is loading, show a loader or a message
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    // If there's an error fetching the data, show an error message
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
 
     return (
         <div className="bg-gray-900 min-h-screen sm:p-0 md:p-6 text-white">
             <div className="flex flex-wrap gap-6">
-                {/* Left Section */}
+                {/* Left Section - Display Profile */}
                 <div className="w-full lg:w-1/2 bg-gray-800 p-6 rounded-md">
-                    {/* Profile Picture with Edit Icon */}
-                    <div className="flex justify-center relative mb-6">
-                        <img
-                            src="https://via.placeholder.com/150"
-                            alt="Profile"
-                            className="rounded-full"
-                        />
-                        <button className="absolute top-0 right-0 bg-gray-700 p-2 rounded-full hover:bg-gray-600">
-                            <FaEdit className="text-blue-500" />
-                        </button>
-                    </div>
-                    {/* Profile Details */}
-                    <div className="space-y-4">
+                    <div className="space-y-8">
                         <div className="bg-gray-700 p-6 rounded-md text-sm shadow-md">
-                            <p className="font-semibold text-base border-b border-gray-600 pb-2">Name: <span className="font-light text-sm text-gray-300">{profileData.name}</span></p>
-                            <p className="font-semibold text-base border-b border-gray-600 pb-2">Phone Number: <span className="text-sm font-light text-gray-300">{profileData.phone}</span></p>
-                            <p className="font-semibold text-base border-b border-gray-600 pb-2">DOB: <span className="text-sm font-light text-gray-300">{profileData.dob}</span></p>
-                            <p className="font-semibold text-base border-b border-gray-600 pb-2">Email: <span className="text-sm font-light text-gray-300">{profileData.email}</span></p>
-                            <p className="font-semibold text-base border-b border-gray-600 pb-2">Role: <span className="text-sm font-light text-gray-300">{profileData.role}</span></p>
-                            <p className="font-semibold text-base border-b border-gray-600 pb-2">Manufacturing Sector: <span className="text-sm font-light text-gray-300">{profileData.shopDetails.shopName}</span></p>
-                            <p className="font-semibold text-base border-b border-gray-600 pb-2">Brief Bio: <span className="text-sm font-light text-gray-300">{profileData.shopDetails.division}</span></p>
-                            <p className="font-semibold text-base border-b border-gray-600 pb-2">Uploaded Resume: <span className="text-sm font-light text-gray-300">{profileData.shopDetails.district}</span></p>
-                            <p className="font-semibold text-base border-b border-gray-600 pb-2">Address: <span className="text-sm font-light text-gray-300">{profileData.shopDetails.subDistrict}</span></p>
-                            <p className="font-semibold text-lg">Status: <span className="font-normal text-green-500">{profileData.status}</span></p>
+                            <p className="font-semibold text-xl border-b border-gray-600 pb-4 mb-4">
+                                Email: <span className="text-base font-light text-gray-300">{userData?.email || "Not Available"}</span>
+                            </p>
+                            <p className="font-semibold text-xl border-b border-gray-600 pb-2">
+                                Password: <span className="text-base font-light text-gray-300">{userData?.password || "Hidden for Security"}</span>
+                            </p>
                         </div>
                     </div>
-
                 </div>
 
                 {/* Right Section - Change Password */}
                 <div className="w-full lg:w-[45%] h-fit bg-gray-800 p-6 rounded-md">
                     <h2 className="text-xl font-semibold mb-5">Change Password</h2>
-                    <form className="space-y-4">
+                    <form className="space-y-4" onSubmit={handleSubmit}>
                         <div>
                             <label className="block font-semibold mb-2">Email</label>
                             <input
                                 type="email"
                                 className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 placeholder="Email"
+                                value={email || userData?.email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div>
                             <label className="block font-semibold mb-2">Old Password</label>
-                            <input
-                                type="password"
-                                className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
-                                placeholder="Enter old password"
-                            />
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                    placeholder="Enter old password"
+                                    value={oldPassword}
+                                    onChange={(e) => setOldPassword(e.target.value)}
+                                />
+                                <button
+                                    type="button"
+                                    onClick={togglePasswordVisibility}
+                                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500"
+                                >
+                                    {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+                                </button>
+                            </div>
                         </div>
                         <div>
                             <label className="block font-semibold mb-2">New Password</label>
-                            <input
-                                type="password"
-                                className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
-                                placeholder="Enter new password"
-                            />
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                    placeholder="Enter new password"
+                                    value={newPassword}
+                                    onChange={(e) => setNewPassword(e.target.value)}
+                                />
+                                <button
+                                    type="button"
+                                    onClick={togglePasswordVisibility}
+                                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500"
+                                >
+                                    {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+                                </button>
+                            </div>
                         </div>
                         <button
                             type="submit"
@@ -89,6 +127,7 @@ const Profile = () => {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../api";
 import Cookies from "js-cookie";
 
+
 // Async Thunks
 export const getProducts = createAsyncThunk(
   "products/getProducts",

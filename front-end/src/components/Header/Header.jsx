@@ -8,7 +8,7 @@ import { IoLogoYoutube } from "react-icons/io";
 import { IoMenu, IoClose } from "react-icons/io5";
 import "./header.css";
 import Typewriter from "typewriter-effect/dist/core";
-
+import { RiAdminFill } from "react-icons/ri";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -79,10 +79,18 @@ const Header = () => {
                     <SiInstagram className="text-xl" />
                   </li>
                   <li>
-                    <Link to={"/dashboard"}>
+                    <Link >
                       <IoLogoYoutube className="text-xl" />
                     </Link>
                   </li>
+                  <div className="mt-">
+                    <Link to={"/dashboard"}>
+                    
+                      <button className="flex  bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-900 transition">
+                      <RiAdminFill className="text-xl mr-2" /> Admin →
+                  </button>
+                    </Link>
+                  </div>
                 </ul>
               </div>
             </div>

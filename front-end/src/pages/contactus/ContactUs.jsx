@@ -1,20 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ContactBanner from "../../assets/images/contactbanner.jpg";
 import { CiMail } from "react-icons/ci";
 import { FaPhoneAlt, FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaLocationDot, FaLinkedinIn, FaUserLock } from "react-icons/fa6";
 import { LuSend } from "react-icons/lu";
-
+import { MdProductionQuantityLimits } from "react-icons/md";
+import { CiFlag1 } from "react-icons/ci";
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactUs = () => {
+    // State to manage form data
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        phone: '',
+        email: '',
+        product: '',
+        country: '',
+        message: ''
+    });
+
+    // Handle form input change
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    // Handle form submission
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = {
+          firstName: e.target.firstName.value,
+          lastName: e.target.lastName.value,
+          phone: e.target.phone.value,
+          email: e.target.email.value,
+          product: e.target.product.value,
+          country: e.target.country.value,
+          message: e.target.message.value,
+        };
+      
+        try {
+          const response = await fetch("http://localhost:8500/api/contact/submit", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+      
+          const data = await response.json();
+          if (data.message === "Enquiry submitted successfully") {
+            toast.success("Enquiry submitted successfully!", {
+                position: "top-right",
+                autoClose: 3000, // Closes in 3 seconds
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: "light",
+              });
+          } else {
+            toast.error("Failed to send enquiry.");
+          }
+        } catch (error) {
+          toast.error("Error sending enquiry.");
+        }
+      };
+      
+    
+
     return (
         <>
-
+        <ToastContainer />
             <div className="w-full h-fit">
                 <img
                     src={ContactBanner}
                     alt="Contact Banner"
-                    className="lg:w-[100%] h-[20em] sm:h-[20em] lg:h-[25em]"
+                    className="w-[100%] h-[20em] sm:h-[20em] lg:h-[25em]"
                 />
             </div>
 
@@ -71,56 +137,95 @@ const ContactUs = () => {
                         </ul>
                     </div>
                     <div className="p-4 lg:col-span-2">
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div className="grid sm:grid-cols-2 gap-8">
                                 <div className="relative flex items-center">
-                                    <input type="text" placeholder="First Name" className="px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" />
+                                    <input 
+                                        type="text" 
+                                        name="firstName" 
+                                        required
+                                        placeholder="First Name" 
+                                        className="px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none"
+                                        value={formData.firstName} 
+                                        onChange={handleChange}
+                                    />
                                     <FaUserLock />
                                 </div>
                                 <div className="relative flex items-center">
-                                    <input type="text" placeholder="Last Name" className="px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" />
+                                    <input 
+                                        type="text" 
+                                        name="lastName"
+                                        required 
+                                        placeholder="Last Name" 
+                                        className="px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none"
+                                        value={formData.lastName} 
+                                        onChange={handleChange}
+                                    />
                                     <FaUserLock />
                                 </div>
                                 <div className="relative flex items-center">
-                                    <input type="number" placeholder="Phone No." className="px-2 py-3 bg-white text-black w-full text-sm  border-b border-gray-300 focus:border-blue-500 outline-none" />
+                                    <input 
+                                        type="number" 
+                                        name="phone" 
+                                        required
+                                        placeholder="Phone No." 
+                                        className="px-2 py-3 bg-white text-black w-full text-sm border-b border-gray-300 focus:border-blue-500 outline-none"
+                                        value={formData.phone} 
+                                        onChange={handleChange}
+                                    />
                                     <FaPhoneAlt />
                                 </div>
                                 <div className="relative flex items-center">
-                                    <input type="email" placeholder="Email" className="px-2 py-3 bg-white text-black w-full text-sm  border-b border-gray-300 focus:border-blue-500 outline-none" />
+                                    <input 
+                                        type="email" 
+                                        name="email" 
+                                        required
+                                        placeholder="Email" 
+                                        className="px-2 py-3 bg-white text-black w-full text-sm border-b border-gray-300 focus:border-blue-500 outline-none"
+                                        value={formData.email} 
+                                        onChange={handleChange}
+                                    />
                                     <CiMail />
                                 </div>
+
+                                <div className="relative flex items-center">
+                                    <input 
+                                        type="text" 
+                                        name="product" 
+                                        required
+                                        placeholder="Products you looking" 
+                                        className="px-2 py-3 bg-white text-black w-full text-sm border-b border-gray-300 focus:border-blue-500 outline-none"
+                                        value={formData.product} 
+                                        onChange={handleChange}
+                                    />
+                                    <MdProductionQuantityLimits />
+                                </div>
+                                <div className="relative flex items-center">
+                                    <input 
+                                        type="text" 
+                                        name="country" 
+                                        required
+                                        placeholder="Your country" 
+                                        className="px-2 py-3 bg-white text-black w-full text-sm border-b border-gray-300 focus:border-blue-500 outline-none"
+                                        value={formData.country} 
+                                        onChange={handleChange}
+                                    />
+                                    <CiFlag1 />
+                                </div>
+
                                 <div className="relative flex items-center sm:col-span-2">
-                                    <textarea placeholder="Write Message" className="px-2 pt-3 bg-white text-black w-full text-sm  border-b border-gray-300 focus:border-blue-500 outline-none" defaultValue={""} />
+                                    <textarea 
+                                        name="message" 
+                                        placeholder="Write Message" 
+                                        required
+                                        className="px-2 pt-3 bg-white text-black w-full text-sm border-b border-gray-300 focus:border-blue-500 outline-none"
+                                        value={formData.message} 
+                                        onChange={handleChange}
+                                    />
                                     <CiMail />
-                                </div>
-                                <div className="col-span-full">
-                                    <h6 className="text-sm text-gray-800">Select Subject</h6>
-                                    <div className="flex max-lg:flex-col gap-6 mt-4">
-                                        <div className="flex items-center">
-                                            <input id="radio1" type="radio" name="value1" className="hidden peer" defaultChecked />
-                                            <label htmlFor="radio1" className="relative p-0.5 flex items-center justify-center shrink-0 peer-checked:before:hidden before:block before:absolute before:w-full before:h-full before:bg-white w-5 h-5 cursor-pointer border-2 border-[#011c2b] rounded-full overflow-hidden">
-                                                <span className="border-[4px] border-[#011c2b] rounded-full w-full h-full" />
-                                            </label>
-                                            <p className="text-sm text-gray-500 ml-4">General Inquiry</p>
-                                        </div>
-                                        <div className="flex items-center">
-                                            <input id="radio2" type="radio" name="value1" className="hidden peer" />
-                                            <label htmlFor="radio2" className="relative p-0.5 flex items-center justify-center shrink-0 peer-checked:before:hidden before:block before:absolute before:w-full before:h-full before:bg-white w-5 h-5 cursor-pointer border-2 border-[#011c2b] rounded-full overflow-hidden">
-                                                <span className="border-[4px] border-[#011c2b] rounded-full w-full h-full" />
-                                            </label>
-                                            <p className="text-sm text-gray-500 ml-4">Technical Support</p>
-                                        </div>
-                                        <div className="flex items-center">
-                                            <input id="radio3" type="radio" name="value1" className="hidden peer" />
-                                            <label htmlFor="radio3" className="relative p-0.5 flex items-center justify-center shrink-0 peer-checked:before:hidden before:block before:absolute before:w-full before:h-full before:bg-white w-5 h-5 cursor-pointer border-2 border-[#011c2b] rounded-full overflow-hidden">
-                                                <span className="border-[4px] border-[#011c2b] rounded-full w-full h-full" />
-                                            </label>
-                                            <p className="text-sm text-gray-500 ml-4">Website Feedback</p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-                            <button type="button" className="mt-12 flex items-center justify-center text-sm lg:ml-auto max-lg:w-full rounded-lg px-4 py-3 tracking-wide text-white bg-blue-600 hover:bg-blue-700">
+                            <button type="submit" className="mt-12 flex items-center justify-center text-sm lg:ml-auto max-lg:w-full rounded-lg px-4 py-3 tracking-wide text-white bg-blue-600 hover:bg-blue-700">
                                 <LuSend className='mr-2' />
                                 Send Message
                             </button>
@@ -128,10 +233,8 @@ const ContactUs = () => {
                     </div>
                 </div>
             </div>
-
-
         </>
-    )
-}
+    );
+};
 
-export default ContactUs
+export default ContactUs;
