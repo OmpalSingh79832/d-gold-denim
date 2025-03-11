@@ -109,7 +109,22 @@ export const login = createAsyncThunk(
   }
 );
 
+// change password 
 
+export const changePassword = createAsyncThunk(
+  "products/changepassword",
+  async ({email, oldPassword, newPassword} ,{ rejectWithValue }) => {
+    try {
+      const response = await api.post(`/changepassword`, {email, oldPassword, newPassword});
+      return response.data;
+    } catch (error) {
+      console.error("changed password not found:", error.response);
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to Change Password"
+      );
+    }
+  }
+);
 
 const initialState = {
   products: [],
@@ -229,8 +244,24 @@ const productsSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
+
+      // change password
+      .addCase(changePassword.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(changePassword.fulfilled, (state, action) => {
+        state.loading = false;
+        state.newpassword = action.payload;
+      })
+      .addCase(changePassword.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
   },
 });
+
+
 
 export const { clearError, clearProduct, clearFilteredProducts } = productsSlice.actions;
 

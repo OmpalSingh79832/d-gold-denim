@@ -14,7 +14,7 @@ export default function UploadProduct({ selectedProduct }) {
     material: "",
     application: "",
     colors: "",
-    avcolor:"",
+    avcolor: "",
     gender: "",
     season: "",
     feature: "",
@@ -98,18 +98,12 @@ export default function UploadProduct({ selectedProduct }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addProduct(formData));
-
-
-
-    toast.success("Product added successfully!", {
-      position: "top-right",
-      autoClose: 3000, // Closes in 3 seconds
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: "light",
+    dispatch(addProduct(formData)).then((res) => {
+      if (res?.payload?.success) {
+        toast.success(res.payload.message);
+      } else {
+        toast.error(res.payload.message);
+      }
     });
     dispatch(getProducts())
   };
@@ -124,24 +118,24 @@ export default function UploadProduct({ selectedProduct }) {
     <>
       <ToastContainer />
       {/* Show Existing Product Images */}
-{formData.images.length > 0 && (
-  <div className="col-span-2">
-    <h3 className="text-base font-medium text-gray-700 mb-2">Current Images:</h3>
-    <div className="flex gap-2">
-      {formData.images.map((img, index) => (
-        <img key={index} src={img} alt={`Product ${index}`} className="w-20 h-20 rounded-md object-cover" />
-      ))}
-    </div>
-  </div>
-)}
+      {formData.images.length > 0 && (
+        <div className="col-span-2">
+          <h3 className="text-base font-medium text-gray-700 mb-2">Current Images:</h3>
+          <div className="flex gap-2">
+            {formData.images.map((img, index) => (
+              <img key={index} src={img} alt={`Product ${index}`} className="w-20 h-20 rounded-md object-cover" />
+            ))}
+          </div>
+        </div>
+      )}
 
-{/* Show Hover Image */}
-{formData.hoverimage && (
-  <div className="col-span-2">
-    <h3 className="text-base font-medium text-gray-700 mb-2">Current Hover Image:</h3>
-    <img src={formData.hoverimage} alt="Hover" className="w-20 h-20 rounded-md object-cover" />
-  </div>
-)}
+      {/* Show Hover Image */}
+      {formData.hoverimage && (
+        <div className="col-span-2">
+          <h3 className="text-base font-medium text-gray-700 mb-2">Current Hover Image:</h3>
+          <img src={formData.hoverimage} alt="Hover" className="w-20 h-20 rounded-md object-cover" />
+        </div>
+      )}
 
       <div className="max-w-full mx-auto p-8 rounded-2xl shadow-2xl bg-white">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">  {selectedProduct ? "Edit Product Details" : "Add Product Details"}</h1>
@@ -170,7 +164,7 @@ export default function UploadProduct({ selectedProduct }) {
           {[
             { name: "moq", label: "Minimum Quantity Order", options: ["50", "100", "150", "200", "250", "300"] },
             { name: "fabricType", label: "Fabric Type", options: ["Men Casual Jeans", "Normal Damaged Casual Jeans", "Normal Basic Casual Jeans", "Heavy Damaged Casual Jeans", "Normal Scratch Casual Jeans"] },
-            { name: "material", label: "Material", options: ["Slub Three by One Flat Finish Denim","Imported Cotton Fabric, Power Lycra", "Metty Fabric Power Lycra", "Cotton by Cotton Power Lycra", "Cotton by Cotton Marcarise Fabric Power Lycra", "Stretchable Denim", "Cotton by Cotton, Z Black Fabric"] },
+            { name: "material", label: "Material", options: ["Slub Three by One Flat Finish Denim", "Imported Cotton Fabric, Power Lycra", "Metty Fabric Power Lycra", "Cotton by Cotton Power Lycra", "Cotton by Cotton Marcarise Fabric Power Lycra", "Stretchable Denim", "Cotton by Cotton, Z Black Fabric"] },
             { name: "application", label: "Application", options: ["Running, Gym, Fashion, Multi-Use", "Casual, Party, Multi Use", "Casual, Sports, Multi Use", "Casual, Clubwear, Multi Use"] },
             { name: "gender", label: "Gender", options: ["Male", "Female"] },
             { name: "season", label: "Season", options: ["Summer, Autumn, Spring, Winter, All Seasons", "Summer, Autumn, Spring", "Winter, Autumn, Spring", "Summer, Autumn, Spring"] },
@@ -217,17 +211,17 @@ export default function UploadProduct({ selectedProduct }) {
 
           {/* Upload Additional Images */}
           <label className="col-span-2 font-semibold">Upload Additional Images:
-            <input type="file" multiple accept="image/*" onChange={handleImageChange}  required={selectedProduct ? false : true} disabled={selectedProduct ? true : false} className="mt-2 p-3 border rounded-xl w-full" />
+            <input type="file" multiple accept="image/*" onChange={handleImageChange} required={selectedProduct ? false : true} disabled={selectedProduct ? true : false} className="mt-2 p-3 border rounded-xl w-full" />
           </label>
 
           {/* Upload Hover Image */}
           <label className="col-span-2 font-semibold">Upload Hover Image:
-            <input type="file" accept="image/*" onChange={handleHoverImageChange}  required={selectedProduct ? false : true} disabled={selectedProduct ? true : false} className="mt-2 p-3 border rounded-xl w-full" />
+            <input type="file" accept="image/*" onChange={handleHoverImageChange} required={selectedProduct ? false : true} disabled={selectedProduct ? true : false} className="mt-2 p-3 border rounded-xl w-full" />
           </label>
 
           {/* Submit Button */}
           <button type="submit" className="col-span-2 py-3 mt-4 rounded-xl bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-all">
-          {selectedProduct ? "Update Product" : "Add Product"}
+            {selectedProduct ? "Update Product" : "Add Product"}
           </button>
         </form>
       </div>

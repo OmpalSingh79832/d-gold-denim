@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import { login } from '../../redux/slices/productReduer';
+import { changePassword, login } from '../../redux/slices/productReduer';
 import { useNavigate } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Profile = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    
+
     // Retrieve user data from Redux state
     const { loading, error, user: userData } = useSelector((state) => state.product);
-    
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [oldPassword, setOldPassword] = useState("");
@@ -22,18 +22,14 @@ const Profile = () => {
     // Function to handle form submission for login
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const response = await dispatch(login({ email, password })).unwrap();
-            setTimeout(() => {
-                toast.success("Login successful!");
-            }, 500);
+        dispatch(changePassword({ email, oldPassword, newPassword })).then((res) => {
+            if (res?.payload?.success) {
+                toast.success(res.payload.message);
+            } else {
+                toast.error(res.payload.message);
+            }
+        });
 
-            setTimeout(() => {
-                navigate("/dashboard");
-            }, 2000);
-        } catch (err) {
-            toast.error(err.message || "Login failed.");
-        }
     };
 
     // Handle password visibility toggle
@@ -44,10 +40,7 @@ const Profile = () => {
         return <div>Loading...</div>;
     }
 
-    // If there's an error fetching the data, show an error message
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+
 
     return (
         <div className="bg-gray-900 min-h-screen sm:p-0 md:p-6 text-white">
