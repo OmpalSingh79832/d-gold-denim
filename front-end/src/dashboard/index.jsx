@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import PopularP from "./components/PopularP";
 import TopProducts from "./components/TopProducts";
 import ContactForm from "./components/ContactForm";
+import ProductEnquiry from "./components/ProductEnquiry";
 
 
 const Index = () => {
@@ -58,6 +59,8 @@ const Index = () => {
           return <PopularP />;
           case "topproduct":
             return <TopProducts />;
+            case "productenquiry":
+            return <ProductEnquiry />;
             case "contactform":
             return <ContactForm />;
       case "profile":

@@ -6,14 +6,22 @@ export const fetchEnquiries = createAsyncThunk("enquiries/fetchEnquiries", async
   return response.data;
 });
 
-export const deleteEnquiry = createAsyncThunk("enquiries/deleteEnquiry", async (id, { rejectWithValue }) => {
-  try {
-    await axios.delete(`http://localhost:8500/api/contact/enquiries/${id}`);
-    return id;
-  } catch (error) {
-    return rejectWithValue(error.response.data);
+export const deleteEnquiry = createAsyncThunk(
+  "enquiries/deleteEnquiry",
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await axios.delete(`http://localhost:8500/api/contact/enquiries/${id}`);
+
+      if (response.status === 200) {
+        return id;  // Return the deleted enquiry ID
+      } else {
+        return rejectWithValue("Failed to delete enquiry");
+      }
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || "Server error");
+    }
   }
-});
+);
 
 const enquirySlice = createSlice({
   name: "enquiries",
@@ -45,3 +53,4 @@ const enquirySlice = createSlice({
 });
 
 export default enquirySlice.reducer;
+

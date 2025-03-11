@@ -4,6 +4,7 @@ import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductById } from "../../redux/slices/productReduer";
 import PopularProducts from "../../pages/homepage/PopularProducts";
+import ProductPricePopup from "./ProductPricePopup";
 
 const ProductPage = () => {
   const { singleproduct } = useSelector((state) => state.product);
@@ -17,6 +18,7 @@ const ProductPage = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [startIndex, setStartIndex] = useState(0);
   const [visibleThumbnails, setVisibleThumbnails] = useState(6); // Start with default value 6
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const dispatch = useDispatch();
 
   const id = params.productId;
@@ -172,9 +174,20 @@ const ProductPage = () => {
                   <p className="px-3 py-2 bg-gray-100 md:my-0 sm:mb-4 text-gray-800 rounded-lg border border-gray-300">
                     In Piece
                   </p>
-                  <button className="bg-[#1E2747] text-white px-5 py-2 rounded-lg text-lg font-medium shadow-md hover:bg-[#2571B9] transition-all">
+                  <button
+                    className="bg-[#1E2747] text-white px-5 py-2 rounded-lg text-lg font-medium shadow-md hover:bg-[#2571B9] transition-all"
+                    onClick={() => setIsPopupOpen(true)}
+                  >
+
                     Get Best Price
                   </button>
+                  {/* Price Popup Component */}
+                  <ProductPricePopup
+                    product={oneproduct}
+                    images={thumbnails}
+                    isOpen={isPopupOpen}
+                    onClose={() => setIsPopupOpen(false)}
+                  />
                 </div>
 
                 {/* Product Details Table */}
@@ -230,10 +243,17 @@ const ProductPage = () => {
 
                 {/* Action Buttons */}
                 <div className="sm:my-0 md:my-6 md:flex sm:flex-row gap-4">
-                  <button className="bg-gray-100 px-5 md:my-0 sm:my-4 py-3 text-lg font-medium rounded-lg text-gray-900 border border-gray-300 hover:bg-gray-200 transition-all">
-                    Request to Call
+                 <Link to={"/contact-us"}>
+                 <button 
+                  className="bg-gray-100 px-5 md:my-0 sm:my-4 py-3 text-lg font-medium rounded-lg text-gray-900 border border-gray-300 hover:bg-gray-200 transition-all"
+                  
+                  >
+                    Contact Now
                   </button>
-                  <button className="bg-[#1E2747] text-white text-lg px-5 py-3 rounded-lg font-medium shadow-md hover:bg-[#2571B9] transition-all">
+                 </Link>
+                  <button className="bg-[#1E2747] text-white text-lg px-5 py-3 rounded-lg font-medium shadow-md hover:bg-[#2571B9] transition-all"
+                  onClick={() => setIsPopupOpen(true)}
+                  >
                     Send Enquiry
                   </button>
                 </div>
@@ -337,7 +357,9 @@ const ProductPage = () => {
 
           {/* Call-to-Action Button */}
           <div className="mt-4 flex justify-center">
-            <button className="bg-[#1E2747] text-white text-lg  px-8 py-3 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#2571B9]">
+            <button className="bg-[#1E2747] text-white text-lg  px-8 py-3 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#2571B9]"
+            onClick={() => setIsPopupOpen(true)}
+            >
               Yes! I am Interested
             </button>
           </div>

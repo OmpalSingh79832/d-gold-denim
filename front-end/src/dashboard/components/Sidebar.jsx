@@ -79,7 +79,18 @@ const Sidebar = ({ setActivePage, isOpen, toggleSidebar }) => {
               Top Product
             </button>
           </li>
-
+          <li>
+            <button
+              className="w-full text-left flex items-center p-2 hover:bg-gray-200 text-white hover:text-black rounded"
+              onClick={() => {
+                setActivePage("productenquiry");
+                toggleSidebar();
+              }}
+            >
+              <FaProjectDiagram className="mr-2" />
+              All Enquiry 
+            </button>
+          </li>
           <li>
             <button
               className="w-full text-left flex items-center p-2 hover:bg-gray-200 text-white hover:text-black rounded"

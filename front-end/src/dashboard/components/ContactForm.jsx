@@ -13,12 +13,24 @@ const AdminDashboard = () => {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this enquiry?")) {
-      dispatch(deleteEnquiry(id));
+      dispatch(deleteEnquiry(id))
+        .unwrap()
+        .then(() => {
+          dispatch(fetchEnquiries()); // Re-fetch updated list
+          alert("Enquiry deleted successfully!");
+        })
+        .catch((error) => {
+          console.error("Error deleting enquiry:", error);
+          alert("Failed to delete enquiry.");
+        });
     }
   };
+  
+  
+  
 
   return (
-    <div className="p-6 bg-gray-900 text-white min-h-screen">
+    <div className=" bg-gray-900 text-white min-h-screen">
       <h2 className="text-2xl font-bold mb-4">Contact Form Enquiries</h2>
 
       {loading && <p className="text-yellow-500">Loading enquiries...</p>}
