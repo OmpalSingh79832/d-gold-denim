@@ -120,7 +120,7 @@ const AboutUs = () => {
 
             {/* Our Mission Vision Value */}
             <section className="bg-gray-200 py-20">
-                <div className="container mx-auto px-4 ">
+                <div className="w-[85%] mx-auto">
                     <div className="text-center w-fit mx-auto">
                         <h1 className="sm:text-xl md:text-3xl text-black capitalize ">Our <span className="text-[#3385ff] font-bold">Mission, Vision & Values</span>
                         </h1>
@@ -267,7 +267,7 @@ const AboutUs = () => {
 
             {/* Why Choose Us */}
             <section className="py-12 bg-gray-900 text-gray-100 sm:py-12 lg:py-16">
-                <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div className="mx-auto w-[100%]">
                     <div className="max-w-xl mx-auto text-center xl:max-w-2xl">
                         <div className="w-fit mx-auto">
                             <h1 className="sm:text-xl md:text-3xl text-center text-white capitalize">
@@ -277,7 +277,7 @@ const AboutUs = () => {
                         </div>
                         <p className="sm:mb-0 md:mb-4 sm:text-sm md:text-base">Our provided jeans have earned immense popularity in all age groups due to their exclusive designs and trendiness. Due to their attractive designs, elegant looks, eye soothing colors, exquisite patterns and comfortable fitting they are suitable to wear for all occasions like weddings, family functions, corporate meetings, conferences, parties and even for daily purposes. </p>
                     </div>
-                    <div className="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-8 text-center gap-y-4 sm:gap-x-8 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 sm:mt-12 lg:mt-20 sm:text-left">
+                    <div className="grid w-[85%] grid-cols-1 mx-auto mt-8 text-center gap-y-4 sm:gap-x-8 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 sm:mt-12 lg:mt-20 sm:text-left">
                         <div className="relative">
                             <div className="absolute -inset-1">
                                 <div className="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-400 via-pink-500 to-green-600">
@@ -287,15 +287,15 @@ const AboutUs = () => {
                                 <div className="p-9">
                                     <MdSupportAgent className='text-black text-4xl' />
                                     <h3 className="md:mt-6 sm:text-xl md:text-2xl font-bold text-gray-900 sm:mt-0">Great Supports Team</h3>
-                                    <p className="sm:mt-0 md:mt-6 text-base text-gray-600">We at D-Gold Jeans provides full support to all our esteemed clients for the proper handling of jeans.</p>
+                                    <p className="mt-2 text-base text-gray-600">We at D-Gold Jeans provides full support to all our esteemed clients for the proper handling of jeans.</p>
                                 </div>
                             </div>
                         </div>
                         <div className="overflow-hidden bg-white shadow-md rounded-xl">
                             <div className="p-9">
                                 <GrUserExpert className='text-black text-4xl' />
-                                <h3 className="mt-6 text-2xl font-bold text-gray-900 sm:mt-10">Good Experienced</h3>
-                                <p className="mt-6 text-base text-gray-600">With the span of time we have gain a lot of experience in Jeans manufacturing and unveiling latest designs.</p>
+                                <h3 className="md:mt-6 sm:text-xl md:text-2xl font-bold text-gray-900 sm:mt-0">Good Experienced</h3>
+                                <p className="mt-2 text-base text-gray-600">With the span of time we have gain a lot of experience in Jeans manufacturing and unveiling latest designs.</p>
                             </div>
                         </div>
                         <div className="relative">
@@ -306,8 +306,8 @@ const AboutUs = () => {
                             <div className="relative overflow-hidden bg-white shadow-md rounded-xl h-full">
                                 <div className="p-9">
                                     <LiaCertificateSolid className='text-black text-4xl' />
-                                    <h3 className="mt-6 text-2xl font-bold text-gray-900 sm:mt-10">Certified Company</h3>
-                                    <p className="mt-6 text-base text-gray-600">We are ISO 9001:2015 certified company in manufacturing jeans. We deliver high quality work i n all our designs. </p>
+                                    <h3 className="md:mt-6 sm:text-xl md:text-2xl font-bold text-gray-900 sm:mt-0">Certified Company</h3>
+                                    <p className="mt-2 text-base text-gray-600">We are ISO 9001:2015 certified company in manufacturing jeans. We deliver high quality work i n all our designs. </p>
                                 </div>
                             </div>
                         </div>
