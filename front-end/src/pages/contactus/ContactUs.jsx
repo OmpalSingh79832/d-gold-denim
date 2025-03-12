@@ -84,25 +84,25 @@ const ContactUs = () => {
                 <link rel="canonical" href="" />
             </Helmet>
             <ToastContainer />
-            <div className="w-full h-fit">
+            <div className="w-full homeslide sm:h-[155px] md:h-[310px] lg:h-[500px]">
                 <img
                     src={ContactBanner}
                     alt="Contact Banner"
-                    className="w-[100%] h-[20em] sm:h-[20em] lg:h-[25em]"
+                    className="md:w-full sm:w-full h-full"
                 />
             </div>
 
             <div className="max-w-5xl max-lg:max-w-3xl mx-auto bg-white my-10 font-[sans-serif]">
                 <div className="text-center px-6">
                     <div className="w-fit mx-auto">
-                        <h1 className="text-3xl text-center text-black capitalize">
+                        <h1 className="sm:text-xl md:text-3xl text-center text-black capitalize">
                             Get In <span className="text-[#3987fc] font-bold">Touch</span>
                         </h1>
                         <div className="border-b-2 border-black w-[80%] mx-auto my-4"></div>
                     </div>
                     <p className="text-sm text-gray-500 mt-4">Please don't hesitate to contact us with any inquiries or messages</p>
                 </div>
-                <div className="grid lg:grid-cols-3 items-start gap-4 p-2 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-lg mt-12">
+                <div className="grid lg:grid-cols-3 items-start gap-4 p-2 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-lg sm:mt-4 md:mt-12">
                     <div className="bg-[#011c2b] rounded-lg p-6 h-full max-lg:order-1">
                         <h2 className="text-xl text-white">Contact Information</h2>
                         <p className="text-sm text-gray-300 mt-4">If you have any questions simply use the following contact details. For Manufacturing and Export related enquiries:</p>

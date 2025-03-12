@@ -119,15 +119,15 @@ const AboutUs = () => {
             </div>
 
             {/* Our Mission Vision Value */}
-            <section className="bg-gray-200 py-20">
-                <div className="w-[85%] mx-auto">
+            <section className="bg-gray-200 sm:py-6 md:py-20">
+                <div className="sm:w-[95%] md:w-[85%] mx-auto">
                     <div className="text-center w-fit mx-auto">
                         <h1 className="sm:text-xl md:text-3xl text-black capitalize ">Our <span className="text-[#3385ff] font-bold">Mission, Vision & Values</span>
                         </h1>
                         <div className="border-b-2 border-black w-[80%] mx-auto mt-4"></div>
 
                     </div>
-                    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -mx-4 mt-12">
+                    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -mx-4 sm:mt-4 md:mt-12">
                         <div className="w-full px-4 mb-8">
                             <div className="rounded-md bg-white shadow-md p-8">
                                 <div className="text-4xl font-bold text-purple-600 mb-4">01</div>

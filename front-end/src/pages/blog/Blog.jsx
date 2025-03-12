@@ -122,44 +122,44 @@ const Blog = () => {
         <title>Recent Blog D-Gold Jeans</title>
         <link rel="canonical" href="" />
       </Helmet>
-      <div className="w-full h-fit">
+      <div className="w-full homeslide sm:h-[155px] md:h-[310px] lg:h-[500px]">
         <img
           src={BlogBanner}
           alt="Blog Banner"
-          className="lg:w-[100%] h-[20em] sm:h-[20em] lg:h-[25em]"
+          className="sm:w-full md:w-full h-full"
         />
       </div>
       <div className="bg-gray-100">
-        <div className="w-[90%] mx-auto px-4 py-8">
-          <div className="w-fit mx-auto mb-10">
-            <h1 className="text-3xl text-center text-gray-900 capitalize">
+        <div className="sm:w-full md:w-[90%] mx-auto sm:px-1 md:px-4 py-8">
+          <div className="w-fit mx-auto sm:mb-4 md:mb-10">
+            <h1 className="sm:text-xl md:text-3xl text-center text-gray-900 capitalize">
               Our <span className="text-[#27497b] font-bold">Recent Blog</span>
             </h1>
             <div className="border-b-2 border-black w-[80%] mx-auto mt-4"></div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="grid md:grid-cols-6 lg:grid-cols-12 gap-6">
             {/* Left Column */}
-            <div className="col-span-8 p-10 border-[1px] border-gray-300 bg-white shadow-2xl">
+            <div className="col-span-8 sm:p-2 md:p-10 border-[1px] border-gray-300 bg-white shadow-2xl">
               <div ref={blogSectionRef}>
                 {filteredBlogs.slice(0, 6).map((blog) => (
                   <div key={blog.id} className="mb-8">
-                    <h2 className="text-2xl font-bold mb-2 hover:text-[#27497b] cursor-pointer">
+                    <h2 className="sm:text-lg md:text-2xl font-bold mb-2 hover:text-[#27497b] cursor-pointer">
                       {blog.title}
                     </h2>
                     <div className="flex items-center text-sm text-gray-500 mb-2">
                       <p>📅 {blog.date}</p>
-                      <span className="mx-2">•</span>
+                      <span className="mx-4"></span>
                       <p>✍ {blog.author}</p>
                     </div>
                     <img
                       src={blog.image}
                       alt={blog.title}
-                      className="w-full h-[25rem] object- mb-4"
+                      className="sm:w-full md:w-full sm:h-[10rem] md:h-[25rem] mb-4"
                     />
-                    <p className="text-gray-700 mb-4">{blog.description}</p>
-                    <ul className=" pl-5 text-gray-600 list-none">
+                    <p className="text-gray-700 mb-4 sm:text-sm md:text-base">{blog.description}</p>
+                    <ul className="pl-5 text-gray-600 list-none">
                       {blog.points.map((point, index) => (
-                        <li key={index} className="mb-2">
+                        <li key={index} className="mb-2 sm:text-xs md:text-base">
                           ✔ {point}
                         </li>
                       ))}
@@ -170,7 +170,7 @@ const Blog = () => {
             </div>
 
             {/* Right Column */}
-            <div className="col-span-4 p-10 border-[1px] border-gray-300 bg-white shadow-2xl h-fit sticky top-16">
+            <div className="sm:col-span-8 md:col-span-4 p-10 border-[1px] w-full border-gray-300 bg-white shadow-2xl h-fit sticky top-16">
               {/* Small Intro */}
               <div className="uppercase font-bold text-md mb-10">
                 <p className="text-gray-700">We are Socialize</p>

@@ -21,21 +21,22 @@ const OurPartner = () => {
                 <title>Our Partners D-Gold Jeans</title>
                 <link rel="canonical" href="" />
             </Helmet>
-            <div className="w-full h-fit">
+            <div className="w-full homeslide sm:h-[155px] md:h-[310px] lg:h-[500px]">
                 <img
                     src={PartnerImg}
                     alt="About Banner"
-                    className="lg:w-[100%] h-[20em] sm:h-[20em] lg:h-[25em]"
+                    className="w-full h-full"
                 />
+              
             </div>
             <div>
                 <div className="mt-10 w-fit mx-auto">
-                    <h1 className="text-3xl text-center text-gray-900">
+                    <h1 className="sm:text-xl md:text-3xl text-center text-gray-900">
                         Our Online <span className="text-[#27497b] font-bold">Partners</span>
                     </h1>
                     <div className="border-b-2 border-black w-[80%] mx-auto mt-4"></div>
                 </div>
-                <p className='container mx-auto text-center mt-4 text-gray-600 text-lg'>D-Gold Denim has its own brand image in the market which you can discover with our products loaded with varieties of designs to buy at popular online selling platforms. Here are some of our best known online selling platforms.</p>
+                <p className='sm:w-[90%] md:container mx-auto text-center mt-4 text-gray-600 sm:text-sm md:text-lg'>D-Gold Denim has its own brand image in the market which you can discover with our products loaded with varieties of designs to buy at popular online selling platforms. Here are some of our best known online selling platforms.</p>
             </div>
             <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 container mx-auto my-10'>
                 <div>
