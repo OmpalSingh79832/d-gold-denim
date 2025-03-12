@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import AboutBanner from "../../assets/images/abot11.jpg";
 import Img11 from "../../assets/images/what-we-do1.jpg";
 import Img12 from "../../assets/images/what-we-do2.jpg";
@@ -12,12 +12,22 @@ import Logo12 from "../../assets/images/logo1.png";
 import { Link } from 'react-router-dom';
 import ClientReview from '../homepage/ClientReview';
 import MenImg1 from "../../assets/images/manufacturer.jpg";
+import { Helmet } from "react-helmet";
 
 
 const AboutUs = () => {
+
+     useEffect(() => {
+       window.scrollTo(0, 0);
+     }, []);
+
     return (
         <>
-
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>About-US D-Gold Jeans</title>
+                <link rel="canonical" href="" />
+            </Helmet>
             <div className="w-full homeslide sm:h-[155px] md:h-[310px] lg:h-[500px]">
                 <img
                     src={AboutBanner}

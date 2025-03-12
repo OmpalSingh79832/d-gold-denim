@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductById } from "../../redux/slices/productReduer";
 import PopularProducts from "../../pages/homepage/PopularProducts";
 import ProductPricePopup from "./ProductPricePopup";
+import { Helmet } from "react-helmet";
 
 const ProductPage = () => {
   const { singleproduct } = useSelector((state) => state.product);
@@ -96,9 +97,15 @@ const ProductPage = () => {
   if (!oneproduct) {
     return <div>Product data not available.</div>;
   }
-
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <>
+
       <div className="bg-white">
         <div className="w-[100%] mx-auto px-4 py-8">
           <div className="flex flex-wrap -mx-4">
@@ -155,15 +162,19 @@ const ProductPage = () => {
             </div>
 
             {/* Product Details */}
-            <div className="w-full md:w-[60%] px-6">
-              <div className="p-6 bg-white">
+            <div className="w-full md:w-[60%] sm:px-2 md:px-6">
+              <div className="sm:p-0 md:p-6 bg-white">
                 <h2 className="sm:text-xl md:text-3xl font-semibold text-gray-900 mb-3">
                   {oneproduct.name}
                 </h2>
-                <p className="text-gray-700 text-lg">
+                <p className="text-gray-700 sm:text-sm md:text-lg">
                   {oneproduct.moq} Piece (MOQ)
                 </p>
-
+                <Helmet>
+                  <meta charSet="utf-8" />
+                  <title>{oneproduct.name}</title>
+                  <link rel="canonical" href="" />
+                </Helmet>
                 {/* Quantity & Price Section */}
                 <div className="md:flex sm:flex-row items-center md:my-5 sm:my-0 gap-4 ">
                   <input
@@ -175,7 +186,7 @@ const ProductPage = () => {
                     In Piece
                   </p>
                   <button
-                    className="bg-[#1E2747] text-white px-5 py-2 rounded-lg text-lg font-medium shadow-md hover:bg-[#2571B9] transition-all"
+                    className="bg-[#1E2747] text-white px-5 py-2 rounded-lg sm:text-sm md:text-lg font-medium shadow-md hover:bg-[#2571B9] transition-all"
                     onClick={() => setIsPopupOpen(true)}
                   >
 
@@ -191,10 +202,10 @@ const ProductPage = () => {
                 </div>
 
                 {/* Product Details Table */}
-                <table className="w-full text-lg text-left text-gray-700">
+                <table className="w-full sm:text-sm md:text-lg text-left text-gray-700">
                   <tbody>
                     <tr className="border-b">
-                      <td className="py-3 font-semibold text-lg text-gray-800">
+                      <td className="py-3 font-semibold  text-gray-800">
                         Business Type :
                       </td>
                       <td>
@@ -203,7 +214,7 @@ const ProductPage = () => {
                       </td>
                     </tr>
                     <tr className="border-b">
-                      <td className="py-3 font-semibold text-lg text-gray-800">
+                      <td className="py-3 font-semibold  text-gray-800">
                         Size :
                       </td>
                       <td className="flex items-center gap-4 py-4">
@@ -213,19 +224,19 @@ const ProductPage = () => {
                       </td>
                     </tr>
                     <tr className="border-b">
-                      <td className="py-3 font-semibold text-lg text-gray-800">
+                      <td className="py-3 font-semibold  text-gray-800">
                         Type :
                       </td>
                       <td>{oneproduct.fabricType}</td>
                     </tr>
                     <tr className="border-b">
-                      <td className="py-3 font-semibold text-lg text-gray-800">
+                      <td className="py-3 font-semibold  text-gray-800">
                         Material :
                       </td>
                       <td>{oneproduct.material}</td>
                     </tr>
                     <tr className="border-b">
-                      <td className="py-3 font-semibold text-lg text-gray-800">
+                      <td className="py-3 font-semibold  text-gray-800">
                         Preferred Buyer From :
                       </td>
                       <td>All Over World</td>
@@ -234,25 +245,25 @@ const ProductPage = () => {
                 </table>
 
                 {/* More Details Link */}
-                <Link
-                  to={"/"}
-                  className="text-blue-500 text-lg font-medium hover:text-blue-700 transition-all"
+                <button
+                  onClick={() => scrollToSection('section1')}
+                  className="text-blue-500 sm:text-sm md:text-lg font-medium hover:text-blue-700 transition-all"
                 >
                   Click to view more Details
-                </Link>
+                </button>
 
                 {/* Action Buttons */}
-                <div className="sm:my-0 md:my-6 md:flex sm:flex-row gap-4">
-                 <Link to={"/contact-us"}>
-                 <button 
-                  className="bg-gray-100 px-5 md:my-0 sm:my-4 py-3 text-lg font-medium rounded-lg text-gray-900 border border-gray-300 hover:bg-gray-200 transition-all"
-                  
-                  >
-                    Contact Now
-                  </button>
-                 </Link>
-                  <button className="bg-[#1E2747] text-white text-lg px-5 py-3 rounded-lg font-medium shadow-md hover:bg-[#2571B9] transition-all"
-                  onClick={() => setIsPopupOpen(true)}
+                <div className="sm:my-0 md:my-6 flex gap-4 items-center md:justify-start sm:justify-center">
+                  <Link to={"/contact-us"}>
+                    <button
+                      className="bg-gray-100 sm:px-2 md:px-5 sm:py-2 md:py-3 md:my-0 sm:my-4 sm:text-sm md:text-lg font-medium rounded-lg text-gray-900 border border-gray-300 hover:bg-gray-200 transition-all"
+
+                    >
+                      Contact Now
+                    </button>
+                  </Link>
+                  <button className="bg-[#1E2747] text-white h-fit sm:text-sm md:text-lg sm:px-2 md:px-5 sm:py-2 md:py-3 rounded-lg font-medium shadow-md hover:bg-[#2571B9] transition-all"
+                    onClick={() => setIsPopupOpen(true)}
                   >
                     Send Enquiry
                   </button>
@@ -280,16 +291,16 @@ const ProductPage = () => {
         </div>
       </div>
 
-      <div className="w-full bg-gradient-to-br from-blue-50 to-blue-100 py-12 px-4">
-        <div className="w-full max-w-7xl mx-auto bg-white shadow-xl rounded-xl p-8 border border-gray-200">
+      <div id="section1" className="w-full bg-gradient-to-br from-blue-50 to-blue-100 sm:py-0 md:py-12 sm:px-0 md:px-4">
+        <div className="w-full max-w-7xl mx-auto bg-white shadow-xl rounded-xl sm:px-1 sm:py-4 lg:p-8 border border-gray-200">
           {/* Header Section */}
-          <h2 className="text-4xl font-bold text-blue-900 text-center mb-6">
+          <h2 className="sm:text-xl md:text-4xl font-bold text-blue-900 text-center mb-6">
             Product Details
           </h2>
 
           {/* Product Information Table */}
           <div className="overflow-hidden rounded-lg border border-blue-300 shadow-md overflow-x-auto w-full">
-            <table className="w-full text-lg border-collapse">
+            <table className="w-full sm:text-sm md:text-lg border-collapse">
               <tbody>
                 <tr className="border-b border-blue-200 bg-gray-50">
                   <td className="px-6 py-3 font-medium text-gray-800">
@@ -317,7 +328,7 @@ const ProductPage = () => {
                   <td className="px-6 py-3 font-medium text-gray-800">
                     Season
                   </td>
-                  <td className="px-6 py-3 text-gray-700">
+                  <td className="px-6 py-3 text-gray-700 ">
                     {oneproduct.season}
                   </td>
                 </tr>
@@ -357,8 +368,8 @@ const ProductPage = () => {
 
           {/* Call-to-Action Button */}
           <div className="mt-4 flex justify-center">
-            <button className="bg-[#1E2747] text-white text-lg  px-8 py-3 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#2571B9]"
-            onClick={() => setIsPopupOpen(true)}
+            <button className="bg-[#1E2747] text-white sm:text-sm md:text-lg  sm:px-4 md:px-8 sm:py-2 md:py-3 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#2571B9]"
+              onClick={() => setIsPopupOpen(true)}
             >
               Yes! I am Interested
             </button>

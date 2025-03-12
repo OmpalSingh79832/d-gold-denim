@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ContactBanner from "../../assets/images/contactbanner.jpg";
 import { CiMail } from "react-icons/ci";
 import { FaPhoneAlt, FaFacebook, FaInstagram } from "react-icons/fa";
@@ -8,6 +8,7 @@ import { MdProductionQuantityLimits } from "react-icons/md";
 import { CiFlag1 } from "react-icons/ci";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet";
 
 const ContactUs = () => {
     // State to manage form data
@@ -34,48 +35,55 @@ const ContactUs = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = {
-          firstName: e.target.firstName.value,
-          lastName: e.target.lastName.value,
-          phone: e.target.phone.value,
-          email: e.target.email.value,
-          product: e.target.product.value,
-          country: e.target.country.value,
-          message: e.target.message.value,
+            firstName: e.target.firstName.value,
+            lastName: e.target.lastName.value,
+            phone: e.target.phone.value,
+            email: e.target.email.value,
+            product: e.target.product.value,
+            country: e.target.country.value,
+            message: e.target.message.value,
         };
-      
+
         try {
-          const response = await fetch("http://localhost:8500/api/contact/submit", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          });
-      
-          const data = await response.json();
-          if (data.message === "Enquiry submitted successfully") {
-            toast.success("Enquiry submitted successfully!", {
-                position: "top-right",
-                autoClose: 3000, // Closes in 3 seconds
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                theme: "light",
-              });
-          } else {
-            toast.error("Failed to send enquiry.");
-          }
+            const response = await fetch("http://localhost:8500/api/contact/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+            if (data.message === "Enquiry submitted successfully") {
+                toast.success("Enquiry submitted successfully!", {
+                    position: "top-right",
+                    autoClose: 3000, // Closes in 3 seconds
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    theme: "light",
+                });
+            } else {
+                toast.error("Failed to send enquiry.");
+            }
         } catch (error) {
-          toast.error("Error sending enquiry.");
+            toast.error("Error sending enquiry.");
         }
-      };
-      
-    
+    };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <>
-        <ToastContainer />
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Contact-Us D-Gold Jeans</title>
+                <link rel="canonical" href="" />
+            </Helmet>
+            <ToastContainer />
             <div className="w-full h-fit">
                 <img
                     src={ContactBanner}
@@ -140,86 +148,86 @@ const ContactUs = () => {
                         <form onSubmit={handleSubmit}>
                             <div className="grid sm:grid-cols-2 gap-8">
                                 <div className="relative flex items-center">
-                                    <input 
-                                        type="text" 
-                                        name="firstName" 
+                                    <input
+                                        type="text"
+                                        name="firstName"
                                         required
-                                        placeholder="First Name" 
+                                        placeholder="First Name"
                                         className="px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none"
-                                        value={formData.firstName} 
+                                        value={formData.firstName}
                                         onChange={handleChange}
                                     />
                                     <FaUserLock />
                                 </div>
                                 <div className="relative flex items-center">
-                                    <input 
-                                        type="text" 
+                                    <input
+                                        type="text"
                                         name="lastName"
-                                        required 
-                                        placeholder="Last Name" 
+                                        required
+                                        placeholder="Last Name"
                                         className="px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none"
-                                        value={formData.lastName} 
+                                        value={formData.lastName}
                                         onChange={handleChange}
                                     />
                                     <FaUserLock />
                                 </div>
                                 <div className="relative flex items-center">
-                                    <input 
-                                        type="number" 
-                                        name="phone" 
+                                    <input
+                                        type="number"
+                                        name="phone"
                                         required
-                                        placeholder="Phone No." 
+                                        placeholder="Phone No."
                                         className="px-2 py-3 bg-white text-black w-full text-sm border-b border-gray-300 focus:border-blue-500 outline-none"
-                                        value={formData.phone} 
+                                        value={formData.phone}
                                         onChange={handleChange}
                                     />
                                     <FaPhoneAlt />
                                 </div>
                                 <div className="relative flex items-center">
-                                    <input 
-                                        type="email" 
-                                        name="email" 
+                                    <input
+                                        type="email"
+                                        name="email"
                                         required
-                                        placeholder="Email" 
+                                        placeholder="Email"
                                         className="px-2 py-3 bg-white text-black w-full text-sm border-b border-gray-300 focus:border-blue-500 outline-none"
-                                        value={formData.email} 
+                                        value={formData.email}
                                         onChange={handleChange}
                                     />
                                     <CiMail />
                                 </div>
 
                                 <div className="relative flex items-center">
-                                    <input 
-                                        type="text" 
-                                        name="product" 
+                                    <input
+                                        type="text"
+                                        name="product"
                                         required
-                                        placeholder="Products you looking" 
+                                        placeholder="Products you looking"
                                         className="px-2 py-3 bg-white text-black w-full text-sm border-b border-gray-300 focus:border-blue-500 outline-none"
-                                        value={formData.product} 
+                                        value={formData.product}
                                         onChange={handleChange}
                                     />
                                     <MdProductionQuantityLimits />
                                 </div>
                                 <div className="relative flex items-center">
-                                    <input 
-                                        type="text" 
-                                        name="country" 
+                                    <input
+                                        type="text"
+                                        name="country"
                                         required
-                                        placeholder="Your country" 
+                                        placeholder="Your country"
                                         className="px-2 py-3 bg-white text-black w-full text-sm border-b border-gray-300 focus:border-blue-500 outline-none"
-                                        value={formData.country} 
+                                        value={formData.country}
                                         onChange={handleChange}
                                     />
                                     <CiFlag1 />
                                 </div>
 
                                 <div className="relative flex items-center sm:col-span-2">
-                                    <textarea 
-                                        name="message" 
-                                        placeholder="Write Message" 
+                                    <textarea
+                                        name="message"
+                                        placeholder="Write Message"
                                         required
                                         className="px-2 pt-3 bg-white text-black w-full text-sm border-b border-gray-300 focus:border-blue-500 outline-none"
-                                        value={formData.message} 
+                                        value={formData.message}
                                         onChange={handleChange}
                                     />
                                     <CiMail />

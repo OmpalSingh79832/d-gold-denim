@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PartnerImg from '../../assets/images/ourpartnerbanner.jpg';
 import Img1 from '../../assets/images/4.png';
 import Img2 from '../../assets/images/5.png';
@@ -7,10 +7,20 @@ import Img4 from '../../assets/images/7.jpg';
 import Img5 from '../../assets/images/8.png';
 import Img6 from '../../assets/images/indiamart.jpg';
 import Img7 from '../../assets/images/logo2.png';
+import { Helmet } from "react-helmet";
 
 const OurPartner = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Our Partners D-Gold Jeans</title>
+                <link rel="canonical" href="" />
+            </Helmet>
             <div className="w-full h-fit">
                 <img
                     src={PartnerImg}
