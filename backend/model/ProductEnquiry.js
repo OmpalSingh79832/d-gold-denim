@@ -5,6 +5,8 @@ const ProductEnquirySchema = new mongoose.Schema({
   country: String,
   email: String,
   message: String,
+  name:String,
+  images:String,
 });
 
 module.exports = mongoose.model('ProductEnquiry', ProductEnquirySchema);

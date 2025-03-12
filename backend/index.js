@@ -26,8 +26,8 @@ app.use("/api", productRoute);
 
 // API to save form data
 app.post('/api/productenquiries', async (req, res) => {
-  const { quantity, country, email, message } = req.body;
-  const enquiry = new ProductEnquiry({ quantity, country, email, message });
+  const { quantity, country, email, message, images, name } = req.body;
+  const enquiry = new ProductEnquiry({ quantity, country, email, message, images, name });
   try {
     await enquiry.save();
     res.status(201).json({ message: 'Enquiry submitted successfully' });

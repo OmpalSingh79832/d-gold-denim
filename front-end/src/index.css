@@ -13,9 +13,10 @@ body {
 }
 
 html {
-  overflow-x: hidden !important;
+  /* overflow-x: hidden !important; */
   scroll-behavior: smooth;
 }
+
 .home-bg1{
   background: rgb(167,236,255);
   background: linear-gradient(90deg, rgba(167,236,255,1) 21%, rgba(200,242,255,1) 48%, rgba(156,232,252,1) 77%, rgba(205,238,245,1) 100%);

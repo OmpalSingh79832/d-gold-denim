@@ -15,6 +15,8 @@ const ProductPricePopup = ({ product, images, isOpen, onClose }) => {
     country: "",
     email: "",
     message: "",
+    images: images[0],
+    name: product.name,
   });
 
   // Handle input change
