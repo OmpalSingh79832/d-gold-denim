@@ -103,7 +103,7 @@ export const login = createAsyncThunk(
     } catch (error) {
       console.error("Error login credentially:", error.response);
       return rejectWithValue(
-        error.response?.data?.message || "Failed to add product"
+        error.response?.data?.message || "Login failed"
       );
     }
   }

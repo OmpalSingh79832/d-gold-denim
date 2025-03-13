@@ -89,7 +89,7 @@ const HomeDenim = () => {
   return (
     <>
       {/* Top Products */}
-      <div className="relative text-center py-6">
+      <div className="relative text-center py-6 overflow-x-hidden">
         <div className="w-fit mx-auto">
           <h1 className="sm:text-xl md:text-3xl text-center text-gray-900">Our <span className="text-[#27497b] font-bold">Top Products</span>
           </h1>

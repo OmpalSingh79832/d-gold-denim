@@ -13,7 +13,7 @@ const db = require("./connectdb");
 
 app.use(cors({
   origin: "*",
-  methods: ['GET', 'POST', 'DELETE'],
+  methods: ['GET', 'POST', 'DELETE', "PUT"],
   credentials: true
 }));
 
@@ -47,7 +47,7 @@ app.get('/api/productenquiries', async (req, res) => {
 });
 app.delete('/api/productenquiries/:id', async (req, res) => {
   const { id } = req.params;
-  
+
   try {
     const deletedEnquiry = await ProductEnquiry.findByIdAndDelete(id);
     if (!deletedEnquiry) {
@@ -58,6 +58,37 @@ app.delete('/api/productenquiries/:id', async (req, res) => {
     res.status(500).json({ message: 'Failed to delete enquiry', error });
   }
 });
+
+app.put("/api/productenquiries/:id", async (req, res) => {
+  try {
+    const { status } = req.body; // Get status from request body
+    const enquiryId = req.params.id;
+
+    // Validate status value
+    if (!["Pending", "Fulfilled"].includes(status)) {
+      return res.status(400).json({ message: "Invalid status value" });
+    }
+
+    const updatedEnquiry = await ProductEnquiry.findByIdAndUpdate(
+      enquiryId,
+      { status },
+      { new: true }
+    );
+
+    if (!updatedEnquiry) {
+      return res.status(404).json({ message: "Enquiry not found" });
+    }
+
+    res.status(200).json({ message: "Status updated successfully", enquiry: updatedEnquiry });
+  } catch (error) {
+    console.error("Error updating enquiry status:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+
+
+
 // Start server
 const PORT = process.env.PORT || 8500;
 app.listen(PORT, () => {

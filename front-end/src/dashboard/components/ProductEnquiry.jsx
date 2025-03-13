@@ -24,23 +24,52 @@ const ProductEnquiry = () => {
 
 
   const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this enquiry?")) {
+      try {
+        const response = await fetch(`http://localhost:8500/api/productenquiries/${id}`, {
+          method: "DELETE",
+        });
+  
+        if (response.ok) {
+          // Remove the deleted enquiry from the state
+          setEnquiries(enquiries.filter((enquiry) => enquiry._id !== id));
+          alert("Enquiry deleted successfully");
+        } else {
+          alert("Failed to delete enquiry");
+        }
+      } catch (error) {
+        console.error("Error deleting enquiry:", error);
+        alert("Error deleting enquiry.");
+      }
+    }
+  };
+  
+
+  const handleStatusChange = async (id, newStatus) => {
     try {
       const response = await fetch(`http://localhost:8500/api/productenquiries/${id}`, {
-        method: 'DELETE',
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ status: newStatus }),
       });
 
       if (response.ok) {
-        // Remove the deleted enquiry from the state
-        setEnquiries(enquiries.filter(enquiry => enquiry._id !== id));
-        alert('Enquiry deleted successfully');
+        setEnquiries((prevEnquiries) =>
+          prevEnquiries.map((enquiry) =>
+            enquiry._id === id ? { ...enquiry, status: newStatus } : enquiry
+          )
+        );
       } else {
-        alert('Failed to delete enquiry');
+        alert("Failed to update status");
       }
     } catch (error) {
-      console.error('Error deleting enquiry:', error);
-      alert('Error deleting enquiry');
+      console.error("Error updating status:", error);
+      alert("Error updating status");
     }
   };
+
 
   return (
     <div>
@@ -56,6 +85,8 @@ const ProductEnquiry = () => {
               <th className=" p-2">Email</th>
               <th className=" p-2">Message</th>
               <th className=" p-2">Action</th>
+
+
             </tr>
           </thead>
           <tbody>
@@ -72,11 +103,21 @@ const ProductEnquiry = () => {
                 <td className=" p-2">
                   <button
                     onClick={() => handleDelete(enquiry._id)}
-                    className="text-red-500 hover:text-red-700 transition duration-200"
+                    className="text-red-500 hover:text-red-700 transition duration-200 mr-4"
                   >
                     <FaTrash size={18} />
                   </button>
+                  <select
+                    value={enquiry.status || "Pending"}
+                    onChange={(e) => handleStatusChange(enquiry._id, e.target.value)}
+                    className="bg-gray-700 text-white p-1 rounded"
+                  >
+                    <option value="Pending">Pending</option>
+                    <option value="Fulfilled">Fulfilled</option>
+                  </select>
                 </td>
+
+
               </tr>
             ))}
           </tbody>

@@ -13,7 +13,7 @@ import ProductEnquiry from "./components/ProductEnquiry";
 
 
 const Index = () => {
-  const [activePage, setActivePage] = useState("addproduct");
+  const [activePage, setActivePage] = useState("profile");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
@@ -52,22 +52,21 @@ const Index = () => {
   const renderPage = () => {
     switch (activePage) {
       case "addproduct":
-        return <Dashboard selectedProduct={selectedProduct}/>;
+        return <Dashboard  />;
       case "allproduct":
-        return <AllProducts setActivePage={handleSetActivePage}/>;
-        case "popularproduct":
-          return <PopularP />;
-          case "topproduct":
-            return <TopProducts />;
-            case "productenquiry":
-            return <ProductEnquiry />;
-            case "contactform":
-            return <ContactForm />;
+        return <AllProducts setActivePage={handleSetActivePage} />;
+      case "popularproduct":
+        return <PopularP />;
+      case "topproduct":
+        return <TopProducts />;
+      case "productenquiry":
+        return <ProductEnquiry />;
+      case "contactform":
+        return <ContactForm />;
       case "profile":
-        return <Profile />;
-
+        return <Profile selectedProduct={selectedProduct}/>;
       default:
-        return <Dashboard selectedProduct={selectedProduct}/>;
+        return <Profile selectedProduct={selectedProduct} />;
     }
   };
 

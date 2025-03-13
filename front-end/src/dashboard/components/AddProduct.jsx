@@ -141,7 +141,7 @@ export default function UploadProduct({ selectedProduct }) {
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">  {selectedProduct ? "Edit Product Details" : "Add Product Details"}</h1>
         <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-6">
           {/* Category */}
-          <div className="flex flex-col">
+          <div className="flex flex-col w-full">
             <label className="text-base font-medium text-gray-700">Select Category</label>
             <select name="category" value={formData.category} onChange={handleChange} required className="p-3 border rounded-lg focus:ring-2 focus:ring-blue-300">
               <option value="">Select Category</option>

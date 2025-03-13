@@ -83,7 +83,7 @@ const Header = () => {
                       <IoLogoYoutube className="text-xl" />
                     </Link>
                   </li>
-                  <div className="mt-">
+                  <div>
                     <Link to={"/dashboard"}>
                     
                       <button className="flex  bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-900 transition">
@@ -131,6 +131,14 @@ const Header = () => {
               </li>
               <li className="text-white uppercase text-lg font-semibold py-1 relative cursor-pointer" onClick={handleMenuItemClick}>
                 <Link to={"/contact-us"}>Contact Us</Link>
+              </li>
+              <li className="lg:hidden md:block" onClick={handleMenuItemClick}>
+              <Link to={"/dashboard"}>
+                    
+                    <button className="flex  bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-900 transition">
+                    <RiAdminFill className="text-xl mr-2" /> Admin →
+                </button>
+                  </Link>
               </li>
             </ul>
           </div>

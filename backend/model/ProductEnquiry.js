@@ -7,6 +7,7 @@ const ProductEnquirySchema = new mongoose.Schema({
   message: String,
   name:String,
   images:String,
+  status: { type: String, enum: ["Pending", "Fulfilled"], default: "Pending" },
 });
 
 module.exports = mongoose.model('ProductEnquiry', ProductEnquirySchema);

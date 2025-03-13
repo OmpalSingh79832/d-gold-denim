@@ -38,7 +38,7 @@ const HomeSlider = () => {
         </button>
       </div>
 
-      <Slider {...settings} ref={sliderRef} >
+      <Slider {...settings} ref={sliderRef} className='overflow-x-hidden' >
         {/* Header with Navigation Buttons */}
 
         <div className='relative w-full homeslide sm:h-[155px] md:h-[310px] lg:h-[550px]'>

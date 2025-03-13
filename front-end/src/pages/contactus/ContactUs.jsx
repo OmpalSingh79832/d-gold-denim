@@ -57,7 +57,7 @@ const ContactUs = () => {
             if (data.message === "Enquiry submitted successfully") {
                 toast.success("Enquiry submitted successfully!", {
                     position: "top-right",
-                    autoClose: 3000, // Closes in 3 seconds
+                    autoClose: 3000, 
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,

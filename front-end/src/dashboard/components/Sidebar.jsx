@@ -5,7 +5,9 @@ import {
   FaUser,
   FaTimes,
 } from "react-icons/fa";
-import { MdCloudUpload } from "react-icons/md";
+import { MdCloudUpload, MdProductionQuantityLimits, MdOutlineCountertops, MdMessage  } from "react-icons/md";
+import { TbPhotoPause } from "react-icons/tb";
+import { LuMessageCircleMore } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ setActivePage, isOpen, toggleSidebar }) => {
@@ -51,7 +53,7 @@ const Sidebar = ({ setActivePage, isOpen, toggleSidebar }) => {
                 toggleSidebar();
               }}
             >
-              <FaProjectDiagram className="mr-2" />
+              <MdProductionQuantityLimits className="mr-2" />
               Catalogue Product
             </button>
           </li>
@@ -63,7 +65,7 @@ const Sidebar = ({ setActivePage, isOpen, toggleSidebar }) => {
                 toggleSidebar();
               }}
             >
-              <FaProjectDiagram className="mr-2" />
+              <MdOutlineCountertops className="mr-2" />
               Popular Product
             </button>
           </li>
@@ -75,7 +77,7 @@ const Sidebar = ({ setActivePage, isOpen, toggleSidebar }) => {
                 toggleSidebar();
               }}
             >
-              <FaProjectDiagram className="mr-2" />
+              <TbPhotoPause className="mr-2" />
               Top Product
             </button>
           </li>
@@ -87,7 +89,7 @@ const Sidebar = ({ setActivePage, isOpen, toggleSidebar }) => {
                 toggleSidebar();
               }}
             >
-              <FaProjectDiagram className="mr-2" />
+              <LuMessageCircleMore className="mr-2" />
               All Enquiry 
             </button>
           </li>
@@ -99,7 +101,7 @@ const Sidebar = ({ setActivePage, isOpen, toggleSidebar }) => {
                 toggleSidebar();
               }}
             >
-              <FaProjectDiagram className="mr-2" />
+              <MdMessage  className="mr-2" />
               Contact Form 
             </button>
           </li>

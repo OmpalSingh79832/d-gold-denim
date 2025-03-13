@@ -162,7 +162,7 @@ const Filters = () => {
         </div>
 
         {/* Products Display */}
-        <div className="sm:col-span-12 md:col-span-6 lg:col-span-9 p-4">
+        <div className="sm:col-span-12 md:col-span-6 lg:col-span-9 sm:p-2 md:p-4">
           <h2 className="text-2xl font-bold text-gray-800 mb-8">Products</h2>
           <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-4 sm:px-0 md:px-4 for-md-screen">
             {currentProducts.length > 0 ? (
@@ -208,16 +208,16 @@ const Filters = () => {
           </div>
 
           {/* Pagination Controls */}
-          <div className="flex justify-stretch items-center mt-8  border-t-2 pt-4">
+          <div className="md:flex sm:flex-wrap justify-stretch items-center mt-8  border-t-2 pt-4">
             {/* Page Number */}
-            <div className="text-gray-700">
+            <div className="text-gray-700 md:block sm:hidden">
               Page {currentPage} of {totalPages}
             </div>
 
             <div className="flex items-center justify-center text-center gap-2">
               <button
                 onClick={prevPage}
-                className="text-blue-500 py-2 px-10 flex items-center gap-2 text-base font-semibold uppercase"
+                className="text-blue-500 py-2 sm:px-2 md:px-10 flex items-center gap-2 text-base font-semibold uppercase"
                 disabled={currentPage === 1}
               >
 
@@ -237,7 +237,7 @@ const Filters = () => {
 
               <button
                 onClick={nextPage}
-                className=" text-blue-500 py-2 px-10 flex items-center gap-2 text-base font-semibold uppercase"
+                className=" text-blue-500 py-2 sm:px-2 md:px-10 flex items-center gap-2 text-base font-semibold uppercase"
                 disabled={currentPage === totalPages}
               >
                 Next
