@@ -98,7 +98,7 @@ const Filters = () => {
       <div className="grid grid-cols-12 w-full max-w-[1500px] mx-auto mt-2">
         {/* Filters Panel */}
         <div className="sm:col-span-12 md:col-span-6 lg:col-span-3 p-4 border-r">
-          <div className="sticky top-0">
+          <div className="sticky top-20">
             <h2 className="text-xl font-bold text-gray-800 mb-4">
               Choose Category
             </h2>
@@ -208,7 +208,7 @@ const Filters = () => {
           </div>
 
           {/* Pagination Controls */}
-          <div className="md:flex sm:flex-wrap justify-stretch items-center mt-8  border-t-2 pt-4">
+          <div className="md:flex sm:flex-wrap justify-between items-center mt-8  border-t-2 pt-4">
             {/* Page Number */}
             <div className="text-gray-700 md:block sm:hidden">
               Page {currentPage} of {totalPages}
