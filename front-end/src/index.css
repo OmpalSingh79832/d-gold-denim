@@ -44,8 +44,8 @@ html {
   background-image: url('./assets/images/footer-bg.png');
   width: 100%;
   margin: 0;
-  padding: 100px 0 0 0;
-  background-position: center;
+
+  background-position: top;
   background-size: cover;
   
 }

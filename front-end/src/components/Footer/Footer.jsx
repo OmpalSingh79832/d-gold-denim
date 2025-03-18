@@ -8,9 +8,9 @@ import { LuMail } from "react-icons/lu";
 const Footer = () => {
   return (
 
-    <div className="relative mt-16 footer-bg">
-      <div className="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-        <div className="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
+    <div className="relative footer-bg">
+      <div className="px-4 pt-32 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div className="grid sm:gap-4 md:gap-16 row-gap-10 mb-8 lg:grid-cols-6">
           <div className="md:max-w-md lg:col-span-2 -mt-12">
             <Link
               to={"/"}
@@ -29,7 +29,7 @@ const Footer = () => {
 
             </div>
           </div>
-          <div className="grid sm:grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-3">
+          <div className="grid sm:grid-cols-1 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-3">
             <div>
               <p className="font-semibold tracking-wide text-xl text-teal-accent-400">Quick Links</p>
               <ul className="mt-2 space-y-2">
