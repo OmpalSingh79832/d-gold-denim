@@ -15,7 +15,7 @@ const Footer = () => {
             <Link
               to={"/"}
               aria-label="Go home"
-              title="Company"
+              title="D-Gold Denim Jeans"
               className="inline-flex items-center"
             >
               <img src={Logo} alt="" className='w-[35%] rounded-md' />
