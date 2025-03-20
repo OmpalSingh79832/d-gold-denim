@@ -32,7 +32,7 @@ const Footer = () => {
           <div className="grid sm:grid-cols-1 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-3">
             <div>
               <p className="font-semibold tracking-wide text-xl text-teal-accent-400">Quick Links</p>
-              <ul className="mt-2 space-y-2">
+              <ul className="mt-2 space-y-2"> 
                 <li><Link to="/" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Home</Link></li>
                 <li><Link to="/about-us" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">About Us</Link></li>
                 <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Catalogue</Link></li>
