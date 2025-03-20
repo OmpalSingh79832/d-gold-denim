@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Logo from "../../assets/images/logo1.png";
 import { Link } from 'react-router-dom';
 import { SlLocationPin } from "react-icons/sl";
@@ -6,6 +6,10 @@ import { FaPhoneVolume, FaHeadphonesSimple } from "react-icons/fa6";
 import { RiMailLine } from "react-icons/ri";
 import { LuMail } from "react-icons/lu";
 const Footer = () => {
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
 
     <div className="relative footer-bg">
@@ -43,11 +47,11 @@ const Footer = () => {
             <div>
               <p className="font-semibold tracking-wide text-xl text-teal-accent-400">Denim Jeans</p>
               <ul className="mt-2 space-y-2">
-                <li><Link to="/" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Men Jeans</Link></li>
-                <li><Link to="/" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Women Jeans </Link></li>
-                <li><Link to="/" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Girls Jeans </Link></li>
-                <li><Link to="/" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Kids Jeans </Link></li>
-                <li><Link to="/" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">  Maternity Jeans</Link></li>
+                <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Men Jeans</Link></li>
+                <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Women Jeans </Link></li>
+                <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Girls Jeans </Link></li>
+                <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Kids Jeans </Link></li>
+                <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">  Maternity Jeans</Link></li>
               </ul>
             </div>
             <div>
@@ -56,7 +60,7 @@ const Footer = () => {
                 <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><SlLocationPin className='mr-2 text-white text-lg' /> Ghaziabad-201102, UP, INDIA</li>
                 <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"> <FaPhoneVolume className='mr-2 text-white text-lg' />+91 9266-116358</li>
                 <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><FaHeadphonesSimple className='mr-2 text-white text-lg' />+91 11-4227-3742</li>
-                <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><LuMail className='mr-2 text-white text-lg' />info@d-golddenim.com</li>
+                <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><LuMail className='mr-2 text-white text-lg' />info@d-golddenimjeans.com</li>
                 <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><RiMailLine className='mr-2 text-white text-lg' />rccreation.team@yahoo.com</li>
               </ul>
             </div>
