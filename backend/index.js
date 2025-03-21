@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const multer = require("multer");
+const path = require("path");
 const productRoute = require("./route/productRoute");
 const ProductEnquiry = require('./model/ProductEnquiry');
 const contactRoute = require('./route/contact');
@@ -86,11 +87,14 @@ app.put("/api/productenquiries/:id", async (req, res) => {
   }
 });
 
-
+app.use(express.static(path.join(__dirname, "../front-end/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../front-end/dist/index.html"));
+});
 
 
 // Start server
-const PORT = process.env.PORT || 8500;
+const PORT = process.env.PORT || 8600;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
