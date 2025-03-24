@@ -38,11 +38,11 @@ const Login = () => {
     };
 
     // Side effect for handling error toast
-    useEffect(() => {
-        if (error) {
-            toast.error(error);
-        }
-    }, [error]);
+    // useEffect(() => {
+    //     if (error) {
+    //         toast.error( "Login failed.");
+    //     }
+    // }, [error]);
 
     return (
         <div className="py-16">
