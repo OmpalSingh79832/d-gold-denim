@@ -31,9 +31,8 @@ function App() {
           <Route path="/catalogue" element={<HomeProduct />} />
           <Route path="/product-details/:productId" element={<ProductPage />} />
           <Route path="/login" element={<Login />} />
-
           <Route element={<PrivateRoute />}>
-          <Route path="/dashboard" element={<Index />} />
+          <Route path="/dashboard/*" element={<Index />} />
           </Route>
 
         </Routes>

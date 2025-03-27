@@ -110,33 +110,16 @@ export default function UploadProduct({ selectedProduct }) {
 
   useEffect(() => {
     if (selectedProduct) {
-      setFormData(selectedProduct);
+      setFormData({ ...selectedProduct }); // Pre-fill form with selected product data
     }
   }, [selectedProduct]);
+
+  
   return (
 
     <>
       <ToastContainer />
-      {/* Show Existing Product Images */}
-      {formData.images.length > 0 && (
-        <div className="col-span-2">
-          <h3 className="text-base font-medium text-gray-700 mb-2">Current Images:</h3>
-          <div className="flex gap-2">
-            {formData.images.map((img, index) => (
-              <img key={index} src={img} alt={`Product ${index}`} className="w-20 h-20 rounded-md object-cover" />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Show Hover Image */}
-      {formData.hoverimage && (
-        <div className="col-span-2">
-          <h3 className="text-base font-medium text-gray-700 mb-2">Current Hover Image:</h3>
-          <img src={formData.hoverimage} alt="Hover" className="w-20 h-20 rounded-md object-cover" />
-        </div>
-      )}
-
+   
       <div className="max-w-full mx-auto p-8 rounded-2xl shadow-2xl bg-white">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">  {selectedProduct ? "Edit Product Details" : "Add Product Details"}</h1>
         <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-6">

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./components/AddProduct";
 import Profile from "./components/Profile";
-import DashboardImg from "../assets/images/footerlogo.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 import AllProducts from "./components/AllProducts";
 import { ToastContainer } from "react-toastify";
@@ -13,15 +12,14 @@ import ProductEnquiry from "./components/ProductEnquiry";
 
 
 const Index = () => {
-  const [activePage, setActivePage] = useState("profile");
+  const [activePage, setActivePage] = useState("allproducts");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
 
   const userDetails = {
-    name: "Om Yadav",
-    email: "om@gmail.com",
-    image: DashboardImg,
+    name: "D-Gold Denim Jeans",
+    email: "info@d-golddenimjeans.com",
   };
 
   const toggleSidebar = () => {
@@ -29,8 +27,9 @@ const Index = () => {
   };
   const handleSetActivePage = (page, product = null) => {
     setActivePage(page);
-    setSelectedProduct(product);
+    setSelectedProduct(product); // Save the selected product for editing
   };
+  
 
   // Close sidebar when clicking outside
   useEffect(() => {
@@ -52,7 +51,7 @@ const Index = () => {
   const renderPage = () => {
     switch (activePage) {
       case "addproduct":
-        return <Dashboard  />;
+        return <Dashboard setActivePage={handleSetActivePage} selectedProduct={selectedProduct} />;
       case "allproduct":
         return <AllProducts setActivePage={handleSetActivePage} />;
       case "popularproduct":
@@ -64,11 +63,12 @@ const Index = () => {
       case "contactform":
         return <ContactForm />;
       case "profile":
-        return <Profile selectedProduct={selectedProduct}/>;
+        return <Profile selectedProduct={selectedProduct} />;
       default:
         return <Profile selectedProduct={selectedProduct} />;
     }
   };
+  
 
   return (
 
@@ -93,12 +93,9 @@ const Index = () => {
             </button>
 
             {/* User Details */}
-            <div>
-              <div className="flex text-end ">
-                <h2 className="text-2xl font-bold mr-2 mt-2">{userDetails.name}</h2>
-                <img src={userDetails.image} alt="" className="h-[50px] rounded-full" />
-              </div>
-              <p className="text-sm">{userDetails.email}</p>
+            <div className="">
+                <h2 className="text-xl font-bold mt-2 ">{userDetails.name}</h2>
+                <p className="text-xs">{userDetails.email}</p>
             </div>
           </div>
 
@@ -111,3 +108,5 @@ const Index = () => {
 };
 
 export default Index;
+
+

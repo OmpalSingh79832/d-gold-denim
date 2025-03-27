@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import { deleteroductById, getProducts } from '../../redux/slices/productReduer';
 
-const AllProducts = ({setActivePage}) => {
+const AllProducts = ({ setActivePage }) => {
   const { products } = useSelector((state) => state.product);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -48,10 +48,14 @@ const AllProducts = ({setActivePage}) => {
             <div className="flex-1">{product.gender}</div>
             <div className="w-24 flex justify-center gap-4">
               <button
-                 onClick={() => setActivePage("addproduct", product)}
-                className="text-blue-500 hover:text-blue-700">
+                onClick={() => setActivePage("addproduct", product)} // Pass selected product
+                className="text-blue-500 hover:text-blue-700"
+              >
                 <FaEdit size={16} />
               </button>
+
+
+
               <button
                 onClick={() => deleteProduct(product._id)}
                 className="text-red-500 hover:text-red-700">
