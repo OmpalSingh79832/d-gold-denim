@@ -118,7 +118,7 @@ const ProductPricePopup = ({ product, images, isOpen, onClose }) => {
               </div>
               <button type="submit" className="w-full bg-blue-600 text-white sm:text-sm md:text-base sm:py-1 md:py-2 rounded-md">Send Enquiry</button>
             </form>
-            {submissionStatus && <p className="mt-4 text-center text-red-600">{submissionStatus}</p>}
+            {submissionStatus && <p className="mt-4 text-center text-green-600">{submissionStatus}</p>}
           </div>
         </div>
       </div>
