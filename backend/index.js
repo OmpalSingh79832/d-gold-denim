@@ -87,14 +87,15 @@ app.put("/api/productenquiries/:id", async (req, res) => {
   }
 });
 
-app.use(express.static(path.join(__dirname, "../front-end/dist")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../front-end/dist/index.html"));
-});
+
+// app.use(express.static(path.join(__dirname, "../front-end/dist")));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../front-end/dist/index.html"));
+// });
 
 
 // Start server
-const PORT = process.env.PORT || 8600;
+const PORT = process.env.PORT || 8500;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

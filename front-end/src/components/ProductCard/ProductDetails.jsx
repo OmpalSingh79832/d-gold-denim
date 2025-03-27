@@ -24,9 +24,9 @@ const ProductPage = () => {
 
   const id = params.productId;
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   useEffect(() => {
     dispatch(getProductById(id));
@@ -107,7 +107,10 @@ const ProductPage = () => {
     <>
 
       <div className="bg-white">
-        <div className="w-[100%] mx-auto px-4 py-8">
+        <div className="w-[100%] mx-auto sm:px-3 md:px-4 sm:py-2 md:py-8">
+          <h2 className="sm:text-xl sm:block md:hidden md:text-3xl font-semibold text-gray-900 mb-3">
+            {oneproduct.name}
+          </h2>
           <div className="flex flex-wrap -mx-4">
             {/* Product Images */}
             <div className="w-full md:w-[40%] flex-col-reverse md:flex-row px-4 mb-8 relative flex gap-4">
@@ -146,17 +149,24 @@ const ProductPage = () => {
               </div>
 
               {/* Main Image */}
-              <div
-                className="relative w-full h-full overflow-hidden shadow-lg bg-gray-100 flex justify-center items-center"
+              <div className="relative w-full overflow-hidden bg-gray-100 flex justify-center items-center"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
                 onMouseMove={handleMouseMove}
-              >
+                style={{
+                  aspectRatio: '3/4', // Standard product image ratio
+                  maxHeight: "600px"// Prevent images from being too tall
+                }}>
                 <img
                   src={mainImage}
                   loading="lazy"
                   alt="Product"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full "
+                  style={{
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                    objectFit: 'contain'
+                  }}
                 />
               </div>
             </div>
@@ -164,7 +174,7 @@ const ProductPage = () => {
             {/* Product Details */}
             <div className="w-full md:w-[60%] sm:px-2 md:px-6">
               <div className="sm:p-0 md:p-6 bg-white">
-                <h2 className="sm:text-xl md:text-3xl font-semibold text-gray-900 mb-3">
+                <h2 className="sm:text-xl sm:hidden md:block md:text-3xl font-semibold text-gray-900 mb-3">
                   {oneproduct.name}
                 </h2>
                 <p className="text-gray-700 sm:text-sm md:text-lg">
@@ -204,13 +214,18 @@ const ProductPage = () => {
                 {/* Product Details Table */}
                 <table className="w-full sm:text-sm md:text-lg text-left text-gray-700">
                   <tbody>
+
                     <tr className="border-b">
-                      <td className="py-3 font-semibold  text-gray-800">
-                        Business Type :
+                      <td className="py-3 font-semibold text-gray-800">
+                        Color:
                       </td>
-                      <td>
-                        {" "}
-                        Manufacturer, Exporter, Supplier, Retailer, Trader
+                      <td className="flex items-center gap-4 py-4">
+                        <div
+                          className="w-9 h-9 rounded-full border border-gray-800"
+                          style={{ backgroundColor: oneproduct.colors }}
+                          title={oneproduct.colors}
+                        ></div>
+                        <p className="px-2 py-1">{oneproduct.colors}</p>
                       </td>
                     </tr>
                     <tr className="border-b">
@@ -219,10 +234,11 @@ const ProductPage = () => {
                       </td>
                       <td className="flex items-center gap-4 py-4">
                         {oneproduct.size.map((item) => (
-                          <p className="border px-2 py-1">{item}</p>
+                          <p className="border border-gray-400 px-2 py-1">{item}</p>
                         ))}
                       </td>
                     </tr>
+
                     <tr className="border-b">
                       <td className="py-3 font-semibold  text-gray-800">
                         Type :
@@ -240,6 +256,15 @@ const ProductPage = () => {
                         Preferred Buyer From :
                       </td>
                       <td>All Over World</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="py-3 font-semibold  text-gray-800">
+                        Business Type :
+                      </td>
+                      <td>
+                        {" "}
+                        Manufacturer, Exporter, Supplier, Retailer, Trader
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -271,10 +296,8 @@ const ProductPage = () => {
               </div>
             </div>
           </div>
-
-          {/* Zoomed Image */}
           {isHovering && (
-            <div className="fixed top-12 right-[-19em] w-[80%] h-[100%] overflow-hidden lg:block sm:hidden bg-white border border-gray-300 shadow-lg rounded-lg">
+            <div className="fixed top-12 right-[-19em] w-[80%] h-screen overflow-hidden lg:block sm:hidden bg-white border border-gray-300 shadow-lg rounded-lg">
               <img
                 src={mainImage}
                 loading="lazy"
@@ -288,11 +311,13 @@ const ProductPage = () => {
               />
             </div>
           )}
+
+
         </div>
       </div>
 
-      <div id="section1" className="w-full bg-gradient-to-br from-blue-50 to-blue-100 sm:py-0 md:py-12 sm:px-0 md:px-4">
-        <div className="w-full max-w-7xl mx-auto bg-white shadow-xl rounded-xl sm:px-1 sm:py-4 lg:p-8 border border-gray-200">
+      <div id="section1" className="w-full   sm:py-0 md:pb-8 sm:px-0 md:px-4">
+        <div className="w-full max-w-7xl mx-auto bg-white  sm:px-1  lg:px-8 ">
           {/* Header Section */}
           <h2 className="sm:text-xl md:text-4xl font-bold text-blue-900 text-center mb-6">
             Product Details

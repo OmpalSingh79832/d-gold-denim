@@ -113,8 +113,13 @@ const Filters = () => {
               </div>
               {isCategoryOpen && (
                 <div className="mt-2">
-                  {categories.map((category) => (
-                    <label key={category} className="flex items-center gap-2 text-sm mb-1">
+                  {[
+                    "Men's Jeans",
+                    "Women's Jeans",
+                    "Track Pants",
+                    "Kid's Jeans",
+                  ].map((category) => (
+                    <label key={category} className="flex items-center gap-2 text-base mb-2">
                       <input
                         type="checkbox"
                         checked={selectedCategories.includes(category)}
@@ -123,6 +128,7 @@ const Filters = () => {
                         }
                       />
                       {category}
+                      
                     </label>
                   ))}
                 </div>
@@ -140,9 +146,9 @@ const Filters = () => {
               {isColorOpen && (
                 <div className="mt-2 gap-2">
                   {colors.map((color) => (
-                    <label key={color} className="flex items-center gap-2 text-sm mb-1">
+                    <label key={color} className="flex items-center gap-2 text-base mb-2">
                       <div
-                        className="w-5 h-5 rounded-full border"
+                        className="w-6 h-6 rounded-full border border-gray-800"
                         style={{ backgroundColor: color }}
                       ></div>
                       <input
@@ -163,7 +169,7 @@ const Filters = () => {
 
         {/* Products Display */}
         <div className="sm:col-span-12 md:col-span-6 lg:col-span-9 sm:p-2 md:p-4">
-          <h2 className="text-2xl font-bold text-gray-800 mb-8">Products</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-8 px-6"> All Products</h2>
           <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-4 sm:px-0 md:px-4 for-md-screen">
             {currentProducts.length > 0 ? (
               currentProducts.map((product) => (
