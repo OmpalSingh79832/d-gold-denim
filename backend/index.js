@@ -8,17 +8,30 @@ const productRoute = require("./route/productRoute");
 const ProductEnquiry = require('./model/ProductEnquiry');
 const contactRoute = require('./route/contact');
 
+const cookiesParser = require("cookie-parser");
+const bodyParser = require('body-parser');
+
 require("dotenv").config();
 const app = express();
 const db = require("./connectdb");
 
-app.use(cors({
-  origin: "*",
-  methods: ['GET', 'POST', 'DELETE', "PUT"],
-  credentials: true
-}));
+// app.use(cors({
+//   origin: "*",
+//   
+//   credentials: true
+// }));
 
+app.use(
+  cors({
+    origin:  "http://localhost:5174",
+    methods: ['GET', 'POST', 'DELETE', "PUT"],
+    credentials: true,
+})
+);
+app.use(cookiesParser());
+// app.use(bodyParser.json());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/products", express.static("upload/products"));
 app.use('/api/contact', contactRoute);  // Add the route for handling enquiries
 db();

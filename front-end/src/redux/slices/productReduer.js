@@ -81,6 +81,7 @@ export const addProduct = createAsyncThunk(
   "products/addProduct",
   async (formData, { rejectWithValue }) => {
     try {
+      // const response = await api.post(`/addproduct`, formData,{withCredentials:true});
       const response = await api.post(`/addproduct`, formData);
       return response.data;
     } catch (error) {
