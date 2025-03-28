@@ -15,12 +15,23 @@ const AllProducts = ({ setActivePage }) => {
 
   const data = Array.isArray(products) ? products : products.menu || [];
 
-  const deleteProduct = async (id) => {
-    await dispatch(deleteroductById(id));
-    dispatch(getProducts());
+  const deleteProduct = (id) => {
+    if (window.confirm("Are you sure you want to delete this product?")) {
+      dispatch(deleteroductById(id))
+        .unwrap()
+        .then(() => {
+          dispatch(getProducts()); // Re-fetch updated product list
+          alert("Product deleted successfully!");
+        })
+        .catch((error) => {
+          console.error("Error deleting product:", error);
+          alert("Failed to delete product.");
+        });
+    }
   };
+  
 
-
+ 
 
   return (
     <div className="bg-white shadow rounded-2xl">
@@ -53,9 +64,6 @@ const AllProducts = ({ setActivePage }) => {
               >
                 <FaEdit size={16} />
               </button>
-
-
-
               <button
                 onClick={() => deleteProduct(product._id)}
                 className="text-red-500 hover:text-red-700">

@@ -109,6 +109,40 @@ const Filters = () => {
             <h2 className="text-xl font-bold text-gray-800 mb-4">
               Choose Category
             </h2>
+            {/* Gender Filter */}
+            <div className="border p-3 mb-2 cursor-pointer">
+              <div
+                className="flex justify-between items-center"
+                onClick={() => setIsGenderOpen(!isGenderOpen)}
+              >
+                <span>GENDER</span>
+                {isGenderOpen ? <FaMinus /> : <FaPlus />}
+              </div>
+              {isGenderOpen && (
+                <div className="mt-2">
+                  <label className="flex items-center gap-2 text-sm mb-1">
+                    <input
+                      type="checkbox"
+                      checked={selectedGenders.includes("Male")}
+                      onChange={() =>
+                        toggleSelection(setSelectedGenders, "Male", selectedGenders)
+                      }
+                    />
+                    Male
+                  </label>
+                  <label className="flex items-center gap-2 text-sm mb-1">
+                    <input
+                      type="checkbox"
+                      checked={selectedGenders.includes("Female")}
+                      onChange={() =>
+                        toggleSelection(setSelectedGenders, "Female", selectedGenders)
+                      }
+                    />
+                    Female
+                  </label>
+                </div>
+              )}
+            </div>
             {/* Category Filter */}
             <div className="border p-3 mb-2 cursor-pointer">
               <div
@@ -165,41 +199,7 @@ const Filters = () => {
                 </div>
               )}
             </div>
-
-            {/* Gender Filter */}
-            <div className="border p-3 mb-2 cursor-pointer">
-              <div
-                className="flex justify-between items-center"
-                onClick={() => setIsGenderOpen(!isGenderOpen)}
-              >
-                <span>GENDER</span>
-                {isGenderOpen ? <FaMinus /> : <FaPlus />}
-              </div>
-              {isGenderOpen && (
-                <div className="mt-2">
-                  <label className="flex items-center gap-2 text-sm mb-1">
-                    <input
-                      type="checkbox"
-                      checked={selectedGenders.includes("Male")}
-                      onChange={() =>
-                        toggleSelection(setSelectedGenders, "Male", selectedGenders)
-                      }
-                    />
-                    Male
-                  </label>
-                  <label className="flex items-center gap-2 text-sm mb-1">
-                    <input
-                      type="checkbox"
-                      checked={selectedGenders.includes("Female")}
-                      onChange={() =>
-                        toggleSelection(setSelectedGenders, "Female", selectedGenders)
-                      }
-                    />
-                    Female
-                  </label>
-                </div>
-              )}
-            </div>
+            
           </div>
         </div>
 
