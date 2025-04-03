@@ -38,8 +38,8 @@ const AllProducts = ({ setActivePage }) => {
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 pt-6">
         All Product Details
       </h1>
-      <div>
-        <div className="flex items-center p-2 border-b font-semibold text-lg text-gray-700">
+      <div className='h-[60vh] overflow-y-auto'>
+        <div className="flex items-center p-2 border-b font-semibold text-lg text-gray-700 ">
           <div className="w-20">Image</div>
           <div className="flex-1">Product Name</div>
           <div className="flex-1">Category</div>
@@ -49,12 +49,12 @@ const AllProducts = ({ setActivePage }) => {
         </div>
 
         {data.map((product) => (
-          <div key={product.id} className="flex items-center p-1 border-b text-base text-gray-600">
+          <div key={product.id} className="flex items-center p-1 border-b text-base text-gray-600 ">
             <div className="w-20">
               <img src={product?.hoverimage} alt={product.name} className="h-14 w-14 object-cover rounded" />
             </div>
-            <div className="flex-1">{product.name}</div>
-            <div className="flex-1">{product.category}</div>
+            <div className="flex-1 text-xs">{product.name}</div>
+            <div className="flex-1 text-xs">{product.category}</div>
             <div className="flex-1">{product.colors}</div>
             <div className="flex-1">{product.gender}</div>
             <div className="w-24 flex justify-center gap-4">
