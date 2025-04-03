@@ -103,6 +103,19 @@ const ProductPage = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const colorHexMap = {
+    "Dark Blue": "#00008B",
+    "Light Blue": "#ADD8E6",
+    "Classic Blue": "#4169E1",
+    "Black": "#000000",
+    "Charcoal Gray": "#36454F",
+    "Stone Wash Blue": "#5A7D9A",
+    "Indigo": "#4B0082",
+    "Ash Gray": "#B2BEB5",
+    "White": "#FFFFFF",
+    "Navy Blue": "#000080",
+  };
   return (
     <>
 
@@ -222,7 +235,8 @@ const ProductPage = () => {
                       <td className="flex items-center gap-4 py-4">
                         <div
                           className="w-9 h-9 rounded-full border border-gray-800"
-                          style={{ backgroundColor: oneproduct.colors }}
+                        
+                          style={{ backgroundColor: colorHexMap[oneproduct.colors] || oneproduct.colors }}
                           title={oneproduct.colors}
                         ></div>
                         <p className="px-2 py-1">{oneproduct.colors}</p>

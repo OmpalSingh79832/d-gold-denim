@@ -95,6 +95,20 @@ const Filters = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const colorHexMap = {
+    "Dark Blue": "#00008B",
+    "Light Blue": "#ADD8E6",
+    "Classic Blue": "#4169E1",
+    "Black": "#000000",
+    "Charcoal Gray": "#36454F",
+    "Stone Wash Blue": "#5A7D9A",
+    "Indigo": "#4B0082",
+    "Ash Gray": "#B2BEB5",
+    "White": "#FFFFFF",
+    "Navy Blue": "#000080",
+  };
+  
+
   return (
     <>
       <Helmet>
@@ -140,6 +154,26 @@ const Filters = () => {
                     />
                     Female
                   </label>
+                  <label className="flex items-center gap-2 text-sm mb-1">
+                    <input
+                      type="checkbox"
+                      checked={selectedGenders.includes("Kids")}
+                      onChange={() =>
+                        toggleSelection(setSelectedGenders, "Kids", selectedGenders)
+                      }
+                    />
+                    Kid's
+                  </label>
+                  <label className="flex items-center gap-2 text-sm mb-1">
+                    <input
+                      type="checkbox"
+                      checked={selectedGenders.includes("Track")}
+                      onChange={() =>
+                        toggleSelection(setSelectedGenders, "Track", selectedGenders)
+                      }
+                    />
+                   Track Pants
+                  </label>
                 </div>
               )}
             </div>
@@ -184,7 +218,7 @@ const Filters = () => {
                     <label key={color} className="flex items-center gap-2 text-sm mb-1">
                       <div
                         className="w-5 h-5 rounded-full border"
-                        style={{ backgroundColor: color }}
+                        style={{ backgroundColor: colorHexMap[color] || color }}
                       ></div>
                       <input
                         type="checkbox"

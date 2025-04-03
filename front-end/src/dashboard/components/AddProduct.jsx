@@ -30,9 +30,12 @@ export default function UploadProduct({ selectedProduct }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: name === "colors" ? value.split(",") : value, // Store colors as an array
+    }));
   };
-
+  
   const handleImageChange = async (e) => {
     const files = Array.from(e.target.files || []);
 
@@ -149,9 +152,9 @@ export default function UploadProduct({ selectedProduct }) {
             { name: "fabricType", label: "Fabric Type", options: ["Men Casual Jeans", "Normal Damaged Casual Jeans", "Normal Basic Casual Jeans", "Heavy Damaged Casual Jeans", "Normal Scratch Casual Jeans"] },
             { name: "material", label: "Material", options: ["Slub Three by One Flat Finish Denim", "Imported Cotton Fabric, Power Lycra", "Metty Fabric Power Lycra", "Cotton by Cotton Power Lycra", "Cotton by Cotton Marcarise Fabric Power Lycra", "Stretchable Denim", "Cotton by Cotton, Z Black Fabric"] },
             { name: "application", label: "Application", options: ["Running, Gym, Fashion, Multi-Use", "Casual, Party, Multi Use", "Casual, Sports, Multi Use", "Casual, Clubwear, Multi Use"] },
-            { name: "gender", label: "Gender", options: ["Male", "Female"] },
+            { name: "gender", label: "Gender", options: ["Male", "Female", "Kids", "Track"] },
             { name: "season", label: "Season", options: ["Summer, Autumn, Spring, Winter, All Seasons", "Summer, Autumn, Spring", "Winter, Autumn, Spring", "Summer, Autumn, Spring"] },
-            { name: "colors", label: "Colors", options: ["Blue", "Black", "Gray", "White"] },
+            { name: "colors", label: "Colors", options: ["Blue", "Black", "Gray", "White", "Classic Blue", "Dark Blue", "Light Blue", "Charcoal Gray", "Stone Wash Blue", "Indigo", "Ash Gray", "Navy Blue"] },
             { name: "feature", label: "Feature", options: ["Comfortable, Stretchable, Easy Washable", "Trendy, Comfortable, Stylish", "Multiple Pockets, Durable, Comfortable", "Soft, Easily Washable, Breathable"] },
             { name: "uploadCategory", label: "Category to Upload", options: ["Recently Product", "Popular Product", "Top Products"] },
           ].map(({ name, label, options }) => (
