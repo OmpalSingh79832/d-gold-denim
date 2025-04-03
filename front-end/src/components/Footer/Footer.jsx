@@ -13,8 +13,8 @@ const Footer = () => {
   return (
 
     <div className="relative footer-bg">
-      <div className="px-4 pt-32 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-        <div className="grid gap-8 mb-8 grid-cols-12">
+      <div className="px-4 pt-32 mx-auto sm:max-w-xl md:max-w-full lg:max-w-[90%] md:px-24 lg:px-8">
+        <div className="grid gap-8 mb-4 grid-cols-12">
           <div className="lg:col-span-4 md:col-span-6 sm:col-span-12">
             <Link
               to={"/"}
@@ -26,44 +26,46 @@ const Footer = () => {
 
             </Link>
             <div className="mt-4 lg:max-w-sm">
-              <p className="text-base font-semibold text-deep-purple-50">
-                At the heart of "D-G Gold Denim Jeans" is RC Creation, a visionary entrepreneur with a strong passion for high-quality denim.
-                <br /> We proudly export our jeans worldwide, catering to retailers, wholesalers, and fashion brands.
+              <p className="text-base text-deep-purple-50">
+                At the heart of "<strong>D-G Gold Denim Jeans</strong>" is <br /> <strong> RC Creation</strong>, a visionary entrepreneur with a strong passion for <strong>High-quality denim.</strong>
+                <br /> We proudly export our jeans <strong>Worldwide</strong>, catering to <strong>Retailers</strong>, <strong>Wholesalers</strong>, and <strong>Fashion Brands.</strong>
               </p>
 
             </div>
           </div>
-            <div className='lg:col-span-2 md:col-span-6 sm:col-span-12'>
-              <p className="font-semibold tracking-wide text-xl text-teal-accent-400">Quick Links</p>
-              <ul className="mt-2 space-y-2">
-                <li><Link to="/" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Home</Link></li>
-                <li><Link to="/about-us" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">About Us</Link></li>
-                <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Catalogue</Link></li>
-                <li><Link to="/our-partner" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Our Partners</Link></li>
-                <li><Link to="/contact-us" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Contact Us</Link></li>
-              </ul>
-            </div>
-            <div className='lg:col-span-2 md:col-span-6 sm:col-span-12'>
-              <p className="font-semibold tracking-wide text-xl text-teal-accent-400">Denim Jeans</p>
-              <ul className="mt-2 space-y-2">
-                <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Men Jeans</Link></li>
-                <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Women Jeans </Link></li>
-                <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Girls Jeans </Link></li>
-                <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Kids Jeans </Link></li>
-                <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">  Maternity Jeans</Link></li>
-              </ul>
-            </div>
-            <div className='lg:col-span-4 md:col-span-6 sm:col-span-12'>
-              <p className="font-semibold tracking-wide text-xl text-teal-accent-400">Head Office Address</p>
-              <ul className="mt-2 space-y-2">
-                <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><SlLocationPin className='mr-2 text-white lg:text-3xl md:text-2xl' /> 36 Choudhary chock  Loni toli Mohalla chock Ghaziabad-201102, UP, INDIA</li>
-                <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"> <FaPhoneVolume className='mr-2 text-white text-lg' />+91 9266-116358</li>
-                <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><FaHeadphonesSimple className='mr-2 text-white text-lg' />+91 11-4227-3742</li>
-                <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><LuMail className='mr-2 text-white text-lg' />info@d-golddenimjeans.com</li>
-                <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><RiMailLine className='mr-2 text-white text-lg' />rccreation.team@yahoo.com</li>
-              </ul>
-            </div>
-       
+          <div className='lg:col-span-2 md:col-span-6 sm:col-span-12'>
+            <p className="font-semibold tracking-wide text-xl text-teal-accent-400">Quick Links</p>
+            <ul className="mt-2 space-y-2">
+              <li><Link to="/" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Home</Link></li>
+              <li><Link to="/about-us" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">About Us</Link></li>
+              <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Catalogue</Link></li>
+              <li><Link to="/our-partner" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Our Partners</Link></li>
+              <li><Link to="/blog" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Our Blog</Link></li>
+              <li><Link to="/contact-us" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Contact Us</Link></li>
+            </ul>
+          </div>
+          <div className='lg:col-span-2 md:col-span-6 sm:col-span-12'>
+            <p className="font-semibold tracking-wide text-xl text-teal-accent-400">Denim Jeans</p>
+            <ul className="mt-2 space-y-2">
+              <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Men Jeans</Link></li>
+              <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Women Jeans </Link></li>
+              <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Girls Jeans </Link></li>
+              <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400"> Kids Jeans </Link></li>
+              <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">  Maternity Jeans</Link></li>
+              <li><Link to="/catalogue" className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">  Skinny Jeans</Link></li>
+            </ul>
+          </div>
+          <div className='lg:col-span-4 md:col-span-6 sm:col-span-12'>
+            <p className="font-semibold tracking-wide text-xl text-teal-accent-400">Head Office Address</p>
+            <ul className="mt-2 space-y-2">
+              <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><SlLocationPin className='mr-2 text-white lg:text-3xl md:text-2xl' /> 36 Choudhary chock  Loni toli Mohalla chock Ghaziabad-201102, UP, INDIA</li>
+              <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><FaPhoneVolume className='mr-2 text-white text-lg' />+91 9266-116358</li>
+              <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><FaHeadphonesSimple className='mr-2 text-white text-lg' />+91 11-4227-3742</li>
+              <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><LuMail className='mr-2 text-white text-lg' />info@d-golddenimjeans.com</li>
+              <li className="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400 flex items-center"><RiMailLine className='mr-2 text-white text-lg' />rccreation.team@yahoo.com</li>
+            </ul>
+          </div>
+
         </div>
         <div className="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
           <p className="text-md text-gray-100">
