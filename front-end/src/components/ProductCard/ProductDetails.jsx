@@ -235,7 +235,6 @@ const ProductPage = () => {
                       <td className="flex items-center gap-4 py-4">
                         <div
                           className="w-9 h-9 rounded-full border border-gray-800"
-                        
                           style={{ backgroundColor: colorHexMap[oneproduct.colors] || oneproduct.colors }}
                           title={oneproduct.colors}
                         ></div>

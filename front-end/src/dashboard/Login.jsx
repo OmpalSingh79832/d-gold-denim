@@ -17,17 +17,15 @@ const Login = () => {
 
     const { loading, error, login: userData } = useSelector((state) => state.product);
 
-    // Function to handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const response = await dispatch(login({ email, password })).unwrap();
-            // Adding a slight delay before showing success toast
+            
             setTimeout(() => {
                 toast.success("Login successful!");
             }, 500);
-
-            // Adding a delay before navigation (Optional)
+            
             setTimeout(() => {
                 navigate("/dashboard");
             }, 2000);
@@ -36,13 +34,6 @@ const Login = () => {
             toast.error(err.message || "Login failed.");
         }
     };
-
-    // Side effect for handling error toast
-    // useEffect(() => {
-    //     if (error) {
-    //         toast.error( "Login failed.");
-    //     }
-    // }, [error]);
 
     return (
         <div className="py-16">
@@ -66,7 +57,7 @@ const Login = () => {
                     <div className="mt-4 flex items-center justify-between">
                         <span className="border-b w-1/5 lg:w-1/4" />
                         <p className="text-xs text-center text-gray-500 uppercase">
-                            or login with email
+                             login with email & password
                         </p>
                         <span className="border-b w-1/5 lg:w-1/4" />
                     </div>
@@ -105,7 +96,7 @@ const Login = () => {
                         <div className="mt-8">
                             <button
                                 type="submit"
-                                className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600"
+                                className="bg-blue-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-900"
                                 disabled={loading}
                             >
                                 {loading ? "Logging in..." : "Login"}
@@ -114,7 +105,6 @@ const Login = () => {
                     </form>
                 </div>
             </div>
-            {/* Toast Notification Container */}
             <ToastContainer />
         </div>
     );

@@ -268,7 +268,7 @@ const Filters = () => {
                       </div>
                     </div>
                     {/* Product Name */}
-                    <div className="sm:bg-white md:bg-[#efe7e2] py-2 h-16">
+                    <div className="sm:bg-white md:bg-[#efe7e2] pt-1 h-16 leading-3">
                       <span className="text-gray-900 sm:text-sm">
                         {product?.name}
                       </span>

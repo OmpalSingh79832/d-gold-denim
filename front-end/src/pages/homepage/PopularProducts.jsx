@@ -51,7 +51,7 @@ const PopularProducts = () => {
 
     return (
         <>
-            {/* Our Top Products */}
+            {/* Our Popular Products */}
             <div className='text-center py-6'>
                 <div className="w-fit mx-auto">
                     <h1 className="sm:text-xl md:text-3xl text-center text-gray-900">
@@ -60,7 +60,6 @@ const PopularProducts = () => {
                     <div className="border-b-2 border-black w-[80%] mx-auto mt-4"></div>
                 </div>
 
-                {/* Header with Navigation Buttons */}
                 <div className="flex justify-end items-center mx-auto px-4 ">
                     <div className="flex gap-3 ">
                         <button
@@ -87,7 +86,7 @@ const PopularProducts = () => {
                                     alt={item?.name}
                                     className="aspect-square w-full rounded-lg bg-gray-200 group-hover:opacity-75 xl:aspect-[7/8]"
                                 />
-                                <h3 className="mt-4 sm:text-sm md:text-lg font-bold">{item?.name}</h3>
+                                <h3 className="mt-4 sm:text-sm md:text-base font-bold">{item?.name}</h3>
                                 <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">
                                     Get More →
                                 </button>
@@ -96,6 +95,7 @@ const PopularProducts = () => {
                     </Slider>
                 </div>
             </div>
+
         </>
     )
 }

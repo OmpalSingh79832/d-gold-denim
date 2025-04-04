@@ -30,10 +30,6 @@ const HomeDenim = () => {
 
   const popular = Array.isArray(popuarproducts) ? popuarproducts : popuarproducts.products || [];
   const top = Array.isArray(topproducts) ? topproducts : topproducts.products || [];
-
-
-  console.log(popular, 'popular')
-
   const sliderRef = useRef(null);
 
   const sliderSettings = {
@@ -123,7 +119,7 @@ const HomeDenim = () => {
                     alt="Product"
                     className="aspect-square w-full rounded-lg bg-gray-200 group-hover:opacity-75 xl:aspect-[7/8]"
                   />
-                  <h3 className="mt-4 sm:text-sm md:text-lg font-bold">{item.name}</h3>
+                  <h3 className="mt-4 sm:text-sm md:text-base font-bold">{item.name}</h3>
                   <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">
                     Get More →
                   </button>

@@ -13,14 +13,11 @@ import Index from './dashboard'
 import Login from './dashboard/Login'
 import PrivateRoute from './privateRoute/PrivateRoute'
 
-
-
 function App() {
 
   return (
     <>
-      <>
-
+      <>    
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -34,7 +31,6 @@ function App() {
           <Route element={<PrivateRoute />}>
           <Route path="/dashboard/*" element={<Index />} />
           </Route>
-
         </Routes>
         <Footer />
       </>
