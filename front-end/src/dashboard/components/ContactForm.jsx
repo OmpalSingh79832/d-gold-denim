@@ -27,8 +27,6 @@ const AdminDashboard = () => {
   };
   
   
-  
-
   return (
     <div className=" bg-gray-900 text-white min-h-screen">
       <h2 className="text-2xl font-bold mb-4">Contact Form Enquiries</h2>
