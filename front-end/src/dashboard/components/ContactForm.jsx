@@ -16,7 +16,7 @@ const AdminDashboard = () => {
       dispatch(deleteEnquiry(id))
         .unwrap()
         .then(() => {
-          dispatch(fetchEnquiries()); // Re-fetch updated list
+          dispatch(fetchEnquiries()); 
           alert("Enquiry deleted successfully!");
         })
         .catch((error) => {
